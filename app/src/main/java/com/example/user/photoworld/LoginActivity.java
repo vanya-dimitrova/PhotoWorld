@@ -2,7 +2,6 @@ package com.example.user.photoworld;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -20,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -28,12 +27,12 @@ public class LoginActivity extends AppCompatActivity {
         password = (EditText) this.findViewById(R.id.login_password);
 
         loginButton = (Button) this.findViewById(R.id.login_button);
-
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                     Intent intent = new Intent(LoginActivity.this, GalleryView.class);
                     LoginActivity.this.startActivity(intent);
+                    finish();
             }
         });
     }

@@ -2,7 +2,6 @@ package com.example.user.photoworld;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -15,11 +14,10 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private EditText confirmPassword;
-
     private Button registerButton;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
@@ -30,7 +28,6 @@ public class RegisterActivity extends AppCompatActivity {
         confirmPassword = (EditText) this.findViewById(R.id.confirm_password);
 
         registerButton = (Button) this.findViewById(R.id.register_button);
-
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -38,6 +35,7 @@ public class RegisterActivity extends AppCompatActivity {
                     //add user
                     Intent intent = new Intent(RegisterActivity.this, GalleryView.class);
                     RegisterActivity.this.startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -52,23 +50,23 @@ public class RegisterActivity extends AppCompatActivity {
         String confirmPassStr = confirmPassword.getText().toString();
 
         if (nameStr.isEmpty()) {
-            name.setError("Name must not be empty!");
+            name.setError(getString(R.string.empty_name));
             isValid = false;
         }
         if (usernameStr.isEmpty()) {
-            username.setError("Username must not be empty!");
+            username.setError(getString(R.string.empty_username));
             isValid = false;
         }
         if (emailStr.isEmpty()) {
-            email.setError("Email is not valid!");
+            email.setError(getString(R.string.invalid_email));
             isValid = false;
         }
         if (passStr.isEmpty() || passStr.length() < 5) {
-            password.setError("The password is too short!");
+            password.setError(getString(R.string.invalid_password));
             isValid = false;
         }
         if (!passStr.equals(confirmPassStr)) {
-            confirmPassword.setError("Passwords do not match!");
+            confirmPassword.setError(getString(R.string.password_mismatch));
             isValid = false;
         }
         return isValid;

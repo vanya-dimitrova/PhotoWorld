@@ -31,4 +31,20 @@
     <string name="abstraction">Abstraction</string>
     <string name="animal">Animal</string>
     <string name="b_and_w"><![CDATA[B&W]]></string>
+
+    <!-- ERROR MESSAGES -->
+    <string name="empty_name">Name must not be empty!</string>
+    <string name="empty_username">Username must not be empty!</string>
+    <string name="invalid_email">Email is not valid!</string>
+    <string name="invalid_password">The password is too short!</string>
+    <string name="password_mismatch">Passwords do not match!</string>
+
+    <string name="wrong_password">Invalid password!</string>
+    <string name="wrong_username">Invalid username!</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
