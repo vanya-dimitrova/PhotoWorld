@@ -1,12 +1,13 @@
 package com.example.user.photoworld.model;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Stack;
 
-public class User {
+public class User implements Serializable{
 
 	private final String username;
 	private final String email;
@@ -32,6 +33,14 @@ public class User {
 		this.name = name;
 		beNotified = true;
 		madeComments = new ArrayList<>();
+	}
+
+	public String getUserName() {
+		return this.username;
+	}
+
+	public String getPassword() {
+		return this.password;
 	}
 	
 	public String getEmail(){
@@ -100,13 +109,5 @@ public class User {
 	private void showUserInfo() {
 		// TODO
 		//check if address value is null
-	}
-	
-	public String getUserName() {
-		return this.username;
-	}
-
-	public String getPassword() {
-		return this.password;
 	}
 }

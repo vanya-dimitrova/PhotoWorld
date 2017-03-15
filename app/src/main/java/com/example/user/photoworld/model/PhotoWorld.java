@@ -69,7 +69,7 @@ public class PhotoWorld {
 	private boolean checkEmail(String email) {
 		if (!this.users.isEmpty()) {
 			for (User user : this.users.values()) {
-				if (user.getEmail() == email) {
+				if (user.getEmail().equals(email)) {
 					return true;
 				}
 			}
@@ -196,7 +196,7 @@ public class PhotoWorld {
 			for (Iterator<Photo> itPhoto = this.photos.get(category).iterator(); itPhoto.hasNext();) {
 				Photo photoCopy = itPhoto.next();
 				byPopularity.add(photoCopy);
-			} //
+			}
 			for (Photo photo : byPopularity) {
 				//TODO appropriate visualization code
 			}
