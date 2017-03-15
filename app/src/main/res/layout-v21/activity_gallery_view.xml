@@ -17,8 +17,9 @@
        android:elevation="4dp"
        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-       android:background="@drawable/back_ground"
-       android:title="@string/app_name">
+       android:background="@drawable/back_ground">
+
+
 
 
    </android.support.v7.widget.Toolbar>
@@ -233,7 +234,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_weight="1"
-                android:src="@drawable/pattern"/>
+                android:src="@drawable/pattern" />
 
 
             <ImageView
