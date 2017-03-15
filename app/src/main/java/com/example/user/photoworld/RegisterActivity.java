@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.user.photoworld.model.User;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText name;
@@ -32,8 +34,15 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(isValidData()) {
+
+                    User user = new User(name.getText().toString(), username.getText().toString(), email.getText().toString(), password.getText().toString(), true);
                     //add user
+
                     Intent intent = new Intent(RegisterActivity.this, GalleryView.class);
+                    Bundle userInfo = new Bundle();
+                    userInfo.putSerializable("user", user);
+                    intent.putExtras(userInfo);
+
                     RegisterActivity.this.startActivity(intent);
                     finish();
                 }
