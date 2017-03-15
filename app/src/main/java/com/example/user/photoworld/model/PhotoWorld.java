@@ -32,16 +32,16 @@ public class PhotoWorld {
 		this.photos.put(Category.ANIMAL, new TreeSet<Photo>());
 		this.photos.put(Category.BLACK_AND_WHITE, new TreeSet<Photo>());
 		this.photos.put(Category.FLOWER, new TreeSet<Photo>());
-		this.photos.put(Category.FOOD, new TreeSet<Photo>()); 
+		this.photos.put(Category.FOOD, new TreeSet<Photo>());
 		this.photos.put(Category.MACRO, new TreeSet<Photo>());
-		this.photos.put(Category.NATURE, new TreeSet<Photo>()); 
-		this.photos.put(Category.PATTERN, new TreeSet<Photo>()); 
-		this.photos.put(Category.PEOPLE, new TreeSet<Photo>()); 
-		this.photos.put(Category.PORTRAIT, new TreeSet<Photo>()); 
-		this.photos.put(Category.SPORT, new TreeSet<Photo>()); 
+		this.photos.put(Category.NATURE, new TreeSet<Photo>());
+		this.photos.put(Category.PATTERN, new TreeSet<Photo>());
+		this.photos.put(Category.PEOPLE, new TreeSet<Photo>());
+		this.photos.put(Category.PORTRAIT, new TreeSet<Photo>());
+		this.photos.put(Category.SPORT, new TreeSet<Photo>());
 		this.photos.put(Category.VINTAGE, new TreeSet<Photo>());
 	}
-	
+
 	private void register(String name, String username, String email, String password, boolean isPhotographer) {
 		User temp = new User(name, username, email, password, isPhotographer);
 		if (this.checkUser(username)) {

@@ -7,8 +7,7 @@
     tools:context="com.example.user.photoworld.GalleryView"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@drawable/back_ground"
-   >
+    android:background="@drawable/back_ground">
 
    <android.support.v7.widget.Toolbar
        android:id="@+id/my_toolbar"
@@ -17,195 +16,181 @@
        android:elevation="4dp"
        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-       android:background="@drawable/back_ground">
-
-
-
+       android:background="@drawable/back_ground"
+       android:title="@string/app_name">
 
    </android.support.v7.widget.Toolbar>
 
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_weight="1">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="1">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.9">
 
+            <ImageView
+                android:id="@+id/abstraction"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/abstraction"/>
+
+            <ImageView
+                android:id="@+id/animal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/animal"/>
+
+            <ImageView
+                android:id="@+id/black_and_white"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/b_white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1">
+
+            <TextView
+                android:id="@+id/abstraction_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.7"
+                android:text="@string/abstraction"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhitish"
+                android:textSize="16dp"
+                android:textScaleX="1.5"
+                android:fontFamily="cursive"/>
+
+            <TextView
+                android:id="@+id/animal_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.9"
+                android:text="@string/animal"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhitish"
+                android:textSize="16dp"
+                android:textScaleX="1.5"
+                android:fontFamily="cursive"/>
+
+            <TextView
+                android:id="@+id/black_and_white_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.4"
+                android:text="@string/b_and_w"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhitish"
+                android:textSize="16dp"
+                android:textScaleX="1.5"
+                android:fontFamily="cursive"/>
+
+        </LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1.9">
+        android:layout_weight="1"
+        android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/abstraction"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/abstraction" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.9">
 
-        <ImageView
-            android:id="@+id/animal"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/animal"/>
+            <ImageView
+                android:id="@+id/flower"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/flower" />
 
-        <ImageView
-            android:id="@+id/black_and_white"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/b_white"/>
+            <ImageView
+                android:id="@+id/food"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/food" />
+
+            <ImageView
+                android:id="@+id/macro"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/macro" />
 
 
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1">
+
+            <TextView
+                android:id="@+id/flower_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="cursive"
+                android:text="@string/flower"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhitish"
+                android:textScaleX="1.5"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/food_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="cursive"
+                android:text="@string/food"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhitish"
+                android:textScaleX="1.5"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/macro_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="cursive"
+                android:text="@string/macro"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhitish"
+                android:textScaleX="1.5"
+                android:textSize="16dp" />
+
+        </LinearLayout>
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:id="@+id/abstraction_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.7"
-            android:text="Abstraction"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhitish"
-            android:textSize="16dp"
-            android:textScaleX="1.5"
-            android:fontFamily="cursive"/>
-
-        <TextView
-            android:id="@+id/animal_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.9"
-            android:text="Animal"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhitish"
-            android:textSize="16dp"
-            android:textScaleX="1.5"
-            android:fontFamily="cursive"/>
-
-        <TextView
-            android:id="@+id/black_and_white_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1.4"
-            android:text="B&amp;W"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhitish"
-            android:textSize="16dp"
-            android:textScaleX="1.5"
-            android:fontFamily="cursive"/>
-
-    </LinearLayout>
-
-</LinearLayout>
-
-
-
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_weight="1">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1.9">
-
-        <ImageView
-            android:id="@+id/flower"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/flower"/>
-
-        <ImageView
-            android:id="@+id/food"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/food"/>
-
-        <ImageView
-            android:id="@+id/macro"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/macro"/>
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:id="@+id/flower_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Flower"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhitish"
-            android:textSize="16dp"
-            android:textScaleX="1.5"
-            android:fontFamily="cursive"/>
-
-        <TextView
-            android:id="@+id/food_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Food"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhitish"
-            android:textSize="16dp"
-            android:textScaleX="1.5"
-            android:fontFamily="cursive"/>
-
-        <TextView
-            android:id="@+id/macro_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Macro"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhitish"
-            android:textSize="16dp"
-            android:textScaleX="1.5"
-            android:fontFamily="cursive"/>
-
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -236,7 +221,6 @@
                 android:layout_weight="1"
                 android:src="@drawable/pattern" />
 
-
             <ImageView
                 android:id="@+id/people"
                 android:layout_width="wrap_content"
@@ -246,9 +230,7 @@
                 android:layout_weight="1"
                 android:src="@drawable/people"/>
 
-
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -260,7 +242,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Nature"
+                android:text="@string/nature"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhitish"
                 android:textSize="16dp"
@@ -272,7 +254,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Pattern"
+                android:text="@string/pattern"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhitish"
                 android:textSize="16dp"
@@ -284,7 +266,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="People"
+                android:text="@string/people"
                 android:textAlignment="center"
                 android:textColor="@color/colorWhitish"
                 android:textSize="16dp"
@@ -292,115 +274,89 @@
                 android:fontFamily="cursive"/>
 
         </LinearLayout>
-
-
-
     </LinearLayout>
-
-
-
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:layout_weight="1">
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1.9">
+        android:orientation="vertical"
+        android:layout_weight="1">
 
-        <ImageView
-            android:id="@+id/portrait"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/portrait"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.9">
 
+            <ImageView
+                android:id="@+id/portrait"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/portrait"/>
 
-        <ImageView
-            android:id="@+id/sport"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/sport"/>
+            <ImageView
+                android:id="@+id/sport"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/sport"/>
 
+            <ImageView
+                android:id="@+id/vintage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:src="@drawable/vintage"/>
 
-        <ImageView
-            android:id="@+id/vintage"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:src="@drawable/vintage"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1">
+
+            <TextView
+                android:id="@+id/portrait_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/portrait"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhitish"
+                android:textSize="16dp"
+                android:textScaleX="1.5"
+                android:fontFamily="cursive"/>
+
+            <TextView
+                android:id="@+id/sport_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/sport"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhitish"
+                android:textSize="16dp"
+                android:textScaleX="1.5"
+                android:fontFamily="cursive"/>
+
+            <TextView
+                android:id="@+id/vintage_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/vintage"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhitish"
+                android:textSize="16dp"
+                android:textScaleX="1.5"
+                android:fontFamily="cursive"/>
+
+        </LinearLayout>
     </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1">
-
-        <TextView
-            android:id="@+id/portrait_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Portrait"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhitish"
-            android:textSize="16dp"
-            android:textScaleX="1.5"
-            android:fontFamily="cursive"/>
-
-        <TextView
-            android:id="@+id/sport_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Sport"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhitish"
-            android:textSize="16dp"
-            android:textScaleX="1.5"
-            android:fontFamily="cursive"/>
-
-        <TextView
-            android:id="@+id/vintage_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Vintage"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhitish"
-            android:textSize="16dp"
-            android:textScaleX="1.5"
-            android:fontFamily="cursive"/>
-
-    </LinearLayout>
-
-
-
-</LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
 </LinearLayout>

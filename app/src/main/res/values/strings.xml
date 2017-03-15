@@ -1,5 +1,50 @@
 <resources>
     <string name="app_name">PhotoWorld</string>
-    <string name="log_in">Log in</string>
-    <string name="sign_up">Sign up</string>
+
+    <!-- BUTTONS -->
+    <string name="log_in">LOG IN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="cancel">CANCEL</string>
+    <string name="upload">UPLOAD</string>
+    <string name="save">SAVE</string>
+    <string name="log_out">LOG OUT</string>
+
+    <!-- FIELDS -->
+    <string name="radio_author">author</string>
+    <string name="radio_user">user</string>
+    <string name="name">name</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="email">email</string>
+
+    <!-- CATEGORIES -->
+    <string name="vintage">Vintage</string>
+    <string name="sport">Sport</string>
+    <string name="portrait">Portrait</string>
+    <string name="people">People</string>
+    <string name="pattern">Pattern</string>
+    <string name="nature">Nature</string>
+    <string name="flower">Flower</string>
+    <string name="food">Food</string>
+    <string name="macro">Macro</string>
+    <string name="abstraction">Abstraction</string>
+    <string name="animal">Animal</string>
+    <string name="b_and_w"><![CDATA[B&W]]></string>
+
+    <!-- ERROR MESSAGES -->
+    <string name="empty_name">Name must not be empty!</string>
+    <string name="empty_username">Username must not be empty!</string>
+    <string name="invalid_email">Email is not valid!</string>
+    <string name="invalid_password">The password is too short!</string>
+    <string name="password_mismatch">Passwords do not match!</string>
+
+    <string name="wrong_password">Invalid password!</string>
+    <string name="wrong_username">Invalid username!</string>
+    <string name="title_activity_navigation">NavigationActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>
