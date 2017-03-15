@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">PhotoWorld</string>
+
+    <string name="login">LOGIN</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="cancel">CANCEL</string>
+    <string name="upload">UPLOAD</string>
+    <string name="save">SAVE</string>
+    <string name="log_out">LOG OUT</string>
+
+    <string name="radio_author">author</string>
+    <string name="radio_user">user</string>
+    <string name="name">name</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="email">email</string>
 </resources>

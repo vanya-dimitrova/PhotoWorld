@@ -41,7 +41,11 @@ public class PhotoWorld {
 		this.photos.put(Category.SPORT, new TreeSet<Photo>()); 
 		this.photos.put(Category.VINTAGE, new TreeSet<Photo>());
 	}
-	
+
+	HashMap<String, User> getUsers() {
+		return users;
+	}
+
 	private void register(String name, String username, String email, String password, boolean isPhotographer) {
 		User temp = new User(name, username, email, password, isPhotographer);
 		if (this.checkUser(username)) {

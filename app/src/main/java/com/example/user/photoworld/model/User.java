@@ -62,7 +62,7 @@ public class User {
 	}
 
 	//TODO remove verifiedPassword field
-	private boolean validatePassword(String password) {
+	boolean validatePassword(String password) {
 		if (password != null && !password.isEmpty() && password.length() < 5) {
 			this.password = password;
 			return true;
@@ -70,7 +70,7 @@ public class User {
 		return false;
 	}
 	
-	private boolean confirmPassword(String pass1, String pass2) {
+	boolean confirmPassword(String pass1, String pass2) {
 		if (!pass1.equals(pass2)) {
 			return false;
 		}
