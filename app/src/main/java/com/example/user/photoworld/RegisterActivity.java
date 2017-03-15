@@ -1,5 +1,6 @@
 package com.example.user.photoworld;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -30,15 +31,16 @@ public class RegisterActivity extends AppCompatActivity {
 
         registerButton = (Button) this.findViewById(R.id.register_button);
 
-        View.OnClickListener listener = new View.OnClickListener() {
+        registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(isValidData()) {
                     //add user
+                    Intent intent = new Intent(RegisterActivity.this, GalleryView.class);
+                    RegisterActivity.this.startActivity(intent);
                 }
             }
-        };
-        registerButton.setOnClickListener(listener);
+        });
     }
 
     private boolean isValidData() {

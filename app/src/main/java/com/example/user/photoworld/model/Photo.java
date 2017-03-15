@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class Photo implements Comparable<Photo>{
 	
-	enum Category {NATURE, ABSTRACT, ANIMAL, SPORT, FOOD, MACRO, FLOWER, PEOPLE, PORTRAIT, PATTERN, VINTAGE, BLACK_AND_WHITE}
+	enum Category {ABSTRACT, ANIMAL, BLACK_AND_WHITE, FLOWER, FOOD, MACRO, NATURE, PATTERN, PEOPLE, PORTRAIT, SPORT, VINTAGE}
 
 	private final String photographer;
 	private final File photoImage;

@@ -11,31 +11,33 @@
         android:text="@string/app_name"
         android:textAlignment="center"
         android:fontFamily="cursive"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorWhitish"
         android:textSize="70sp"/>
     
     <EditText
         android:id="@+id/login_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:textColorHint="@color/colorPrimary"
-        android:hint="username"
+        android:background="@color/colorTransparent"
+        android:textColor="@color/colorWhitish"
+        android:textColorHint="@color/colorWhitish"
+        android:hint="@string/username"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="50dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:padding="5dp"
-        android:textSize="25sp" />
+        android:textSize="25sp"/>
 
     <EditText
         android:id="@+id/login_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/transparent"
-        android:textColorHint="@color/colorPrimary"
+        android:background="@color/colorTransparent"
+        android:textColor="@color/colorWhitish"
+        android:textColorHint="@color/colorWhitish"
         android:inputType="textPassword"
-        android:hint="password"
+        android:hint="@string/password"
         android:layout_marginBottom="20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -46,14 +48,14 @@
         android:id="@+id/login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:background="@color/transparent"
+        android:text="@string/log_in"
+        android:background="@color/colorTransparent"
         android:textColor="@color/colorPrimary"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:textSize="25sp" />
+        android:textSize="25sp"/>
         <!-- TO-DO: align button to the right -->
 
 </LinearLayout>

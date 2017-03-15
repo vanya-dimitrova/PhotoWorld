@@ -13,15 +13,16 @@
         android:text="@string/app_name"
         android:textAlignment="center"
         android:fontFamily="cursive"
-        android:textColor="@color/colorPrimary"
+        android:textColor="@color/colorWhitish"
         android:textSize="70sp"/>
 
         <EditText
             android:id="@+id/name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:textColorHint="@color/colorPrimary"
+            android:background="@color/colorTransparent"
+            android:textColor="@color/colorWhitish"
+            android:textColorHint="@color/colorWhitish"
             android:hint="@string/name"
             android:layout_marginBottom="20dp"
             android:layout_marginTop="50dp"
@@ -34,8 +35,9 @@
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:textColorHint="@color/colorPrimary"
+            android:background="@color/colorTransparent"
+            android:textColor="@color/colorWhitish"
+            android:textColorHint="@color/colorWhitish"
             android:hint="@string/username"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="30dp"
@@ -47,8 +49,9 @@
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:textColorHint="@color/colorPrimary"
+            android:background="@color/colorTransparent"
+            android:textColor="@color/colorWhitish"
+            android:textColorHint="@color/colorWhitish"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
             android:layout_marginBottom="20dp"
@@ -61,8 +64,9 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:textColorHint="@color/colorPrimary"
+            android:background="@color/colorTransparent"
+            android:textColor="@color/colorWhitish"
+            android:textColorHint="@color/colorWhitish"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:layout_marginBottom="20dp"
@@ -75,8 +79,9 @@
             android:id="@+id/confirm_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/transparent"
-            android:textColorHint="@color/colorPrimary"
+            android:background="@color/colorTransparent"
+            android:textColorHint="@color/colorWhitish"
+            android:textColor="@color/colorWhitish"
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
             android:layout_marginBottom="20dp"
@@ -89,6 +94,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textColor="@color/colorWhitish"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:layout_marginTop="30dp">
@@ -103,8 +109,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/radio_author"
-                    android:textColor="@color/colorPrimary"
-                    android:buttonTint="@color/colorPrimary"
+                    android:textColor="@color/colorWhitish"
+                    android:buttonTint="@color/colorWhitish"
                     android:checked="true"/>
 
                 <RadioButton
@@ -112,15 +118,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/radio_user"
-                    android:textColor="@color/colorPrimary"
-                    android:buttonTint="@color/colorPrimary"/>
+                    android:textColor="@color/colorWhitish"
+                    android:buttonTint="@color/colorWhitish"/>
 
             </RadioGroup>
 
             <Button
                 android:id="@+id/register_button"
                 android:layout_height="wrap_content"
-                android:background="@color/transparent"
+                android:background="@color/colorTransparent"
                 android:text="@string/sign_up"
                 android:textColor="@color/colorPrimary"
                 android:textSize="25sp"
