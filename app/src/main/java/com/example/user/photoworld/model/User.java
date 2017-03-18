@@ -7,13 +7,12 @@ import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Stack;
 
-public class User implements Serializable{
+public class User implements Serializable, Cloneable{
 
 	private final String username;
 	private final String email;
 
 	private String password;
-	private String verifiedPassword;
 	private String name;
 	private String address;
 	private int age;
@@ -23,8 +22,7 @@ public class User implements Serializable{
 	private ArrayList<Comment> madeComments;
 	private HashSet<Photo> photos;
 	private Stack<Photo> photographerPhotos;
-	
-	// TODO remove name
+
 	public User(String name, String username, String email, String password, boolean isPhotographer) {
 		this.username = username;
 		this.password = password;
@@ -106,8 +104,8 @@ public class User implements Serializable{
 		beNotified = true;
 	}
 
-	private void showUserInfo() {
-		// TODO
-		//check if address value is null
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
 	}
 }

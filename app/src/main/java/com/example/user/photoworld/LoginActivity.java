@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.user.photoworld.model.PhotoWorld;
 import com.example.user.photoworld.model.User;
 
 import java.util.HashSet;
@@ -30,10 +31,32 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                PhotoWorld gallery = PhotoWorld.getPhotoWorld();
+                if (isValidData(gallery)) {
+                    gallery.login(username.getText().toString());
+
                     Intent intent = new Intent(LoginActivity.this, GalleryView.class);
+                    intent.putExtra("gallery", gallery);
                     LoginActivity.this.startActivity(intent);
                     finish();
+                }
             }
         });
+    }
+
+    private boolean isValidData(PhotoWorld gallery) {
+        boolean isValid = true;
+        String usernameStr = username.getText().toString();
+        String passStr = password.getText().toString();
+
+        if (gallery.checkUser(usernameStr)) {
+            username.setError(getString(R.string.wrong_username));
+            isValid = false;
+        }
+        if (gallery.checkPassword(usernameStr,passStr)) {
+            password.setError(getString(R.string.wrong_password));
+            isValid = false;
+        }
+        return isValid;
     }
 }

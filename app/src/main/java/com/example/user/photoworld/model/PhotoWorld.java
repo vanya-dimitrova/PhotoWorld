@@ -2,14 +2,16 @@ package com.example.user.photoworld.model;
 
 import com.example.user.photoworld.model.Photo.Category;
 
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeSet;
 
-public class PhotoWorld {
+public class PhotoWorld implements Serializable{
 	
 	private static PhotoWorld photoWorld;
+	private String currentUser;
 
 	private HashMap<Category, TreeSet<Photo>> photos;
 	private HashMap<String, User> users;
@@ -25,7 +27,11 @@ public class PhotoWorld {
 		}
 		return photoWorld;
 	}
-	
+
+	public String getCurrentUser() {
+		return currentUser;
+	}
+
 	private void setCategories() {
 		this.photos = new HashMap<Category, TreeSet<Photo>>();
 		this.photos.put(Category.ABSTRACT, new TreeSet<Photo>());
@@ -42,31 +48,20 @@ public class PhotoWorld {
 		this.photos.put(Category.VINTAGE, new TreeSet<Photo>());
 	}
 
-	private void register(String name, String username, String email, String password, boolean isPhotographer) {
-		User temp = new User(name, username, email, password, isPhotographer);
-		if (this.checkUser(username)) {
-			System.out.println("Sorry! This username is not available!");
-			//TODO stay on the same activity
-		} else if (this.checkEmail(email)) {
-			System.out.println("Sorry! This email address already exists!");
-			//TODO stay on the same activity		
-		}
-		else if (temp == null) {
-			System.out.println();
-			//TODO stay on the same activity
-		} else {
-			this.showOnePhotoPerCategory();
-		}
+	//done
+	public void register(User user) {
+		users.put(user.getUserName(), user);
+		currentUser = user.getUserName();
 	}
-	
-	private boolean checkUser(String userName) {
+	//done
+	public boolean checkUser(String userName) {
 		if (this.users.isEmpty() || (!this.users.isEmpty() && !this.users.containsKey(userName))) {
 			return false;
 		}
 		return true;
 	}
-	
-	private boolean checkEmail(String email) {
+	//done
+	public boolean checkEmail(String email) {
 		if (!this.users.isEmpty()) {
 			for (User user : this.users.values()) {
 				if (user.getEmail().equals(email)) {
@@ -76,8 +71,8 @@ public class PhotoWorld {
 		} 
 		return false;
 	}
-	
-	private boolean checkLogInInformation(String userName, String password) {
+	//done
+	public boolean checkPassword(String userName, String password) {
 		if (this.users.containsKey(userName)) {
 			if (this.users.get(userName).getPassword().equals(password)) {
 				return false;
@@ -85,14 +80,9 @@ public class PhotoWorld {
 		}
 		return true;
 	}
-	
-	private void logIn(String userName, String password) {
-		if (this.checkLogInInformation(userName, password)) {
-			this.showOnePhotoPerCategory();
-		} else {
-			System.out.println("Wrong user name or password!\nPlease try again!");
-			//TODO stay on the same activity
-		}
+
+	public void login(String username) {
+		currentUser = username;
 	}
 	
 	private void logOut() {
