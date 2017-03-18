@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.user.photoworld.model.PhotoWorld;
 import com.example.user.photoworld.model.User;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -36,13 +37,16 @@ public class RegisterActivity extends AppCompatActivity {
                 if(isValidData()) {
 
                     User user = new User(name.getText().toString(), username.getText().toString(), email.getText().toString(), password.getText().toString(), true);
+                    PhotoWorld gallery = PhotoWorld.getPhotoWorld();
+
                     //add user
+                    //assign user to current user
+
+                    // CHECKING PROFILE PAGE
+                    //Intent intent = new Intent(RegisterActivity.this, ProfileActivity.class);
 
                     Intent intent = new Intent(RegisterActivity.this, GalleryView.class);
-                    Bundle userInfo = new Bundle();
-                    userInfo.putSerializable("user", user);
-                    intent.putExtras(userInfo);
-
+                    intent.putExtra("user", user);
                     RegisterActivity.this.startActivity(intent);
                     finish();
                 }

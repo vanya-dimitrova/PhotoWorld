@@ -14,7 +14,8 @@ public class ProfileActivity extends AppCompatActivity{
         setContentView(R.layout.activity_profile);
 
         User user = (User) getIntent().getExtras().getSerializable("user");
-        TextView textView = (TextView) findViewById(R.id.profile_name);
-        textView.setText(user.getUserName());
+        ((TextView)findViewById(R.id.name)).setText(user.getUserName());
+        ((TextView)findViewById(R.id.username)).setText(user.getUserName());
+        ((TextView)findViewById(R.id.email)).setText(user.getUserName());
     }
 }

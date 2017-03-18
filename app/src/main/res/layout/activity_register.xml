@@ -14,7 +14,7 @@
         android:textAlignment="center"
         android:fontFamily="cursive"
         android:textColor="@color/colorWhitish"
-        android:textSize="70sp"/>
+        android:textSize="55sp"/>
 
         <EditText
             android:id="@+id/name"

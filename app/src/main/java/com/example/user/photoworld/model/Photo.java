@@ -1,10 +1,11 @@
 package com.example.user.photoworld.model;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.TreeMap;
 
-public class Photo implements Comparable<Photo>{
+public class Photo implements Comparable<Photo>, Serializable{
 	
 	enum Category {ABSTRACT, ANIMAL, BLACK_AND_WHITE, FLOWER, FOOD, MACRO, NATURE, PATTERN, PEOPLE, PORTRAIT, SPORT, VINTAGE}
 
@@ -26,7 +27,7 @@ public class Photo implements Comparable<Photo>{
 		this.category = category;
 		this.rating = 0;
 		this.comments = new TreeMap<>();
-	}	
+	}
 	
 	private void showPhotoProperties() {
 		//TODO

@@ -1,10 +1,11 @@
 package com.example.user.photoworld.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.InputMismatchException;
 
-public class Comment implements Comparable<Comment>{
+public class Comment implements Comparable<Comment>, Serializable{
 
 	private final String commenterUsername;
 	private final Date commentDate;
