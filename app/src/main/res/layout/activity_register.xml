@@ -24,12 +24,12 @@
             android:textColor="@color/colorWhitish"
             android:textColorHint="@color/colorWhitish"
             android:hint="@string/name"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:padding="5dp"
-            android:textSize="25sp"/>
+            android:padding="3dp"
+            android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/username"
@@ -39,11 +39,11 @@
             android:textColor="@color/colorWhitish"
             android:textColorHint="@color/colorWhitish"
             android:hint="@string/username"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:padding="5dp"
-            android:textSize="25sp"/>
+            android:padding="3dp"
+            android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/email"
@@ -54,11 +54,11 @@
             android:textColorHint="@color/colorWhitish"
             android:hint="@string/email"
             android:inputType="textEmailAddress"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:padding="5dp"
-            android:textSize="25sp"/>
+            android:padding="3dp"
+            android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/password"
@@ -69,11 +69,11 @@
             android:textColorHint="@color/colorWhitish"
             android:hint="@string/password"
             android:inputType="textPassword"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:padding="5dp"
-            android:textSize="25sp"/>
+            android:padding="3dp"
+            android:textSize="20sp"/>
 
         <EditText
             android:id="@+id/confirm_password"
@@ -84,11 +84,11 @@
             android:textColor="@color/colorWhitish"
             android:hint="@string/confirm_password"
             android:inputType="textPassword"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
-            android:padding="5dp"
-            android:textSize="25sp"/>
+            android:padding="3dp"
+            android:textSize="20sp"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -129,7 +129,7 @@
                 android:background="@color/colorTransparent"
                 android:text="@string/sign_up"
                 android:textColor="@color/colorPrimary"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:layout_width="0dp"
                 android:layout_weight="1" />
     </LinearLayout>

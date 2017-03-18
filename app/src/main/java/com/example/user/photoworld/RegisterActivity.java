@@ -55,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean isValidData() {
+
         boolean isValid = true;
         String nameStr = name.getText().toString();
         String usernameStr = username.getText().toString();
