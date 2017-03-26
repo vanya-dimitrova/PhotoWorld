@@ -25,9 +25,16 @@ public class User implements Serializable, Cloneable{
 		this.password = password;
 		this.email = email; // TODO validation
 		this.name = name;
+<<<<<<< HEAD
 		beNotified = true;
 		this.role = Role.USER;
 		madeComments = new ArrayList<>();
+=======
+		this.beNotified = true;
+		this.madeComments = new ArrayList<>();
+		this.photos = new HashSet<>();
+		this.photographerPhotos = new Stack<>();
+>>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
 	}
 
 	public String getName() {
@@ -109,8 +116,5 @@ public class User implements Serializable, Cloneable{
 		beNotified = true;
 	}
 
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+
 }

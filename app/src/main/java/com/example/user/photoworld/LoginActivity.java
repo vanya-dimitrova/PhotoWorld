@@ -25,6 +25,9 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        
         setContentView(R.layout.activity_login);
 
         username = (EditText) this.findViewById(R.id.login_username);
@@ -44,12 +47,15 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PhotoWorld gallery = PhotoWorld.getPhotoWorld();
-                if (isValidData(gallery)) {
-                    gallery.login(username.getText().toString());
+                if (isValidData(MainActivity.gallery)) {
+                    MainActivity.gallery.login(username.getText().toString());
 
+<<<<<<< HEAD
                     Intent intent = new Intent(LoginActivity.this, GalleryViewActivity.class);
                     intent.putExtra("gallery", gallery);
+=======
+                    Intent intent = new Intent(LoginActivity.this, GalleryActivity.class);
+>>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
                     LoginActivity.this.startActivity(intent);
                     finish();
                 } else {
@@ -65,11 +71,19 @@ public class LoginActivity extends AppCompatActivity {
         String passStr = password.getText().toString();
 
         if (!gallery.checkUser(usernameStr)) {
+<<<<<<< HEAD
            // username.setError(getString(R.string.wrong_username));
             isValid = false;
         }
         if (!gallery.checkPassword(usernameStr, passStr)) {
            // password.setError(getString(R.string.wrong_password));
+=======
+            username.setError(getString(R.string.wrong_username));
+            isValid = false;
+        }
+        if (!gallery.checkPassword(usernameStr,passStr)) {
+            password.setError(getString(R.string.wrong_password));
+>>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
             isValid = false;
         }
         return isValid;

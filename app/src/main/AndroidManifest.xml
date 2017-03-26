@@ -26,7 +26,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity android:name=".EditProfileActivity"></activity>
+=======
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".GalleryActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".CategoryActivity"/>
+>>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
     </application>
 
 </manifest>

@@ -3,6 +3,8 @@ package com.example.user.photoworld.model;
 import com.example.user.photoworld.model.Photo.Category;
 
 import java.io.Serializable;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -32,6 +34,7 @@ public class PhotoWorld implements Serializable{
 		return currentUser;
 	}
 
+
 	private void setCategories() {
 		this.photos = new HashMap<Category, TreeSet<Photo>>();
 		this.photos.put(Category.ABSTRACT, new TreeSet<Photo>());
@@ -48,6 +51,10 @@ public class PhotoWorld implements Serializable{
 		this.photos.put(Category.VINTAGE, new TreeSet<Photo>());
 	}
 
+	public HashMap<Category, TreeSet<Photo>> getPhotos() {
+		return (HashMap<Category, TreeSet<Photo>>) Collections.unmodifiableMap(this.photos);
+	}
+
 	//done
 	public void register(User user) {
 		users.put(user.getUserName(), user);
@@ -55,10 +62,10 @@ public class PhotoWorld implements Serializable{
 	}
 	//done
 	public boolean checkUser(String userName) {
-		if (this.users.isEmpty() || (!this.users.isEmpty() && !this.users.containsKey(userName))) {
-			return false;
+		if (!this.users.isEmpty() && this.users.containsKey(userName)) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 	//done
 	public boolean checkEmail(String email) {
@@ -73,7 +80,7 @@ public class PhotoWorld implements Serializable{
 	}
 	//done
 	public boolean checkPassword(String userName, String password) {
-		if (this.users.containsKey(userName)) {
+		if (!this.users.isEmpty() && this.users.containsKey(userName)) {
 			if (this.users.get(userName).getPassword().equals(password)) {
 				return true;
 			}
@@ -126,7 +133,7 @@ public class PhotoWorld implements Serializable{
 			Iterator<Photo> itPhotos = itCategory.next().iterator();
 			if (itPhotos != null && itPhotos.hasNext()) {
 				Photo photo = itPhotos.next();
-				if (photo.getPhotographer().equals(username)) { 
+				if (photo.getPhotographer().equals(username)) {
 					//TODO appropriate visualization code
 					containsPhotographer = true;
 				}
@@ -195,4 +202,24 @@ public class PhotoWorld implements Serializable{
 		photos.get(category).remove(photo);
 	}
 
+<<<<<<< HEAD
+=======
+	private void ratePhoto() {
+		// TODO check for better collection to get a picture depending on app building
+	}
+	
+	private void commentOnPhoto(String text){
+		// TODO check for better collection to get a picture depending on app building
+	}
+	
+	private void rateComment() {
+		// TODO check for better collection to get a comment depending on app building
+	}
+
+
+	// TODO remove this method if necessary
+	public void addPhoto(Category category, Photo photo){
+		this.photos.get(category).add(photo);
+	}
+>>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
 }
