@@ -34,12 +34,10 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PhotoWorld gallery = PhotoWorld.getPhotoWorld();
-                if (isValidData(gallery)) {
-                    gallery.login(username.getText().toString());
+                if (isValidData(MainActivity.gallery)) {
+                    MainActivity.gallery.login(username.getText().toString());
 
-                    Intent intent = new Intent(LoginActivity.this, GalleryView.class);
-                    intent.putExtra("gallery", gallery);
+                    Intent intent = new Intent(LoginActivity.this, GalleryActivity.class);
                     LoginActivity.this.startActivity(intent);
                     finish();
                 }
@@ -52,11 +50,11 @@ public class LoginActivity extends AppCompatActivity {
         String usernameStr = username.getText().toString();
         String passStr = password.getText().toString();
 
-        if (gallery.checkUser(usernameStr)) {
+        if (!gallery.checkUser(usernameStr)) {
             username.setError(getString(R.string.wrong_username));
             isValid = false;
         }
-        if (gallery.checkPassword(usernameStr,passStr)) {
+        if (!gallery.checkPassword(usernameStr,passStr)) {
             password.setError(getString(R.string.wrong_password));
             isValid = false;
         }

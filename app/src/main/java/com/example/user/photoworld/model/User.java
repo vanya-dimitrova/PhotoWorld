@@ -29,8 +29,10 @@ public class User implements Serializable, Cloneable{
 		this.email = email; // TODO validation
 		this.isPhotographer = isPhotographer;
 		this.name = name;
-		beNotified = true;
-		madeComments = new ArrayList<>();
+		this.beNotified = true;
+		this.madeComments = new ArrayList<>();
+		this.photos = new HashSet<>();
+		this.photographerPhotos = new Stack<>();
 	}
 
 	public String getUserName() {
@@ -104,8 +106,5 @@ public class User implements Serializable, Cloneable{
 		beNotified = true;
 	}
 
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		return super.clone();
-	}
+
 }

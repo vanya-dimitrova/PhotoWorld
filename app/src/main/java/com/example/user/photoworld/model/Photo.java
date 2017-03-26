@@ -7,10 +7,10 @@ import java.util.TreeMap;
 
 public class Photo implements Comparable<Photo>, Serializable{
 	
-	enum Category {ABSTRACT, ANIMAL, BLACK_AND_WHITE, FLOWER, FOOD, MACRO, NATURE, PATTERN, PEOPLE, PORTRAIT, SPORT, VINTAGE}
+	public enum Category {ABSTRACT, ANIMAL, BLACK_AND_WHITE, FLOWER, FOOD, MACRO, NATURE, PATTERN, PEOPLE, PORTRAIT, SPORT, VINTAGE}
 
 	private final String photographer;
-	private final File photoImage;
+	public final int photoId;
 	Date uploadDate;
 	// private final String name;
 	private final Category category;
@@ -20,9 +20,9 @@ public class Photo implements Comparable<Photo>, Serializable{
 	int numberOfSetAs;	
 	private TreeMap<Date, Comment> comments;
 	
-	public Photo(String photographer, File photoImage, String name, Category category) {
+	public Photo(String photographer, int photoId, String name, Category category) {
 		this.photographer = photographer;
-		this.photoImage = photoImage;
+		this.photoId = photoId;
 		//this.name = name;
 		this.category = category;
 		this.rating = 0;

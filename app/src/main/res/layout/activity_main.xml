@@ -6,12 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.user.photoworld.MainActivity"
-    android:background="@drawable/back_ground"
+    android:background="@drawable/background"
     android:orientation="vertical"
     android:gravity="center">
 
     <TextView
-        android:id="@+id/PhotoWorld"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_welcome"
+        android:fontFamily="cursive"
+        android:textColor="@color/colorWhitish"
+        android:textSize="40sp"
+        android:textAlignment="center"/>
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/app_name"

@@ -18,7 +18,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private EditText confirmPassword;
-
     private RadioButton authorRadioButton;
     private Button registerButton;
 
@@ -39,21 +38,19 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
-                PhotoWorld gallery = PhotoWorld.getPhotoWorld();
-                if(isValidData(gallery)) {
+                if(isValidData(MainActivity.gallery)) {
                     User user;
                     if (authorRadioButton.isChecked()) {
                         user = new User(name.getText().toString(), username.getText().toString(), email.getText().toString(), password.getText().toString(), true);
                     } else {
                         user = new User(name.getText().toString(), username.getText().toString(), email.getText().toString(), password.getText().toString(), false);
                     }
-                    gallery.register(user);
+                    MainActivity.gallery.register(user);
 
                     // CHECKING PROFILE PAGE
                     //Intent intent = new Intent(RegisterActivity.this, ProfileActivity.class);
 
-                    Intent intent = new Intent(RegisterActivity.this, GalleryView.class);
-                    intent.putExtra("gallery", gallery);
+                    Intent intent = new Intent(RegisterActivity.this, GalleryActivity.class);
                     RegisterActivity.this.startActivity(intent);
                     finish();
                 }
