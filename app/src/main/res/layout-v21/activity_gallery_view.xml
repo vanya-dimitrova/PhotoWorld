@@ -4,23 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.photoworld.GalleryView"
+    tools:context="com.example.user.photoworld.GalleryViewActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal"
     android:background="@drawable/back_ground">
 
-   <android.support.v7.widget.Toolbar
-       android:id="@+id/my_toolbar"
-       android:layout_width="match_parent"
-       android:layout_height="50dp"
-       android:elevation="4dp"
-       android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-       app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-       android:background="@drawable/back_ground"
-       android:title="@string/app_name">
-
-   </android.support.v7.widget.Toolbar>
-
+    <include
+        layout="@layout/app_bar"
+        android:id="@+id/toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"

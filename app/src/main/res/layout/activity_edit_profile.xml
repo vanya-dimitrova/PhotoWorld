@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_profile"
+        android:textAlignment="center"
+        android:textColor="@color/colorWhitish"
+        android:textSize="35sp"/>
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:textColor="@color/colorWhitish"
+        android:textColorHint="@color/colorWhitish"
+        android:hint="@string/name"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="3dp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/edit_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:textColor="@color/colorWhitish"
+        android:textColorHint="@color/colorWhitish"
+        android:hint="@string/address"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="3dp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/edit_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:textColor="@color/colorWhitish"
+        android:textColorHint="@color/colorWhitish"
+        android:hint="@string/edit_age"
+        android:inputType="number"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="3dp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/edit_old_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:textColor="@color/colorWhitish"
+        android:textColorHint="@color/colorWhitish"
+        android:hint="@string/old_password"
+        android:inputType="textPassword"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="3dp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/edit_new_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:textColorHint="@color/colorWhitish"
+        android:textColor="@color/colorWhitish"
+        android:hint="@string/new_password"
+        android:inputType="textPassword"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="3dp"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/edit_confirm_pass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTransparent"
+        android:textColorHint="@color/colorWhitish"
+        android:textColor="@color/colorWhitish"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:padding="3dp"
+        android:textSize="20sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/cancel_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:padding="8dp"
+            android:text="@string/cancel"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:background="@color/colorTransparent"/>
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_margin="20dp"
+            android:padding="8dp"
+            android:text="@string/save"
+            android:textSize="20sp"
+            android:textColor="@color/colorPrimary"
+            android:background="@color/colorTransparent"/>
+
+    </LinearLayout>
+</LinearLayout>

@@ -17,6 +17,10 @@
     <string name="password">password</string>
     <string name="confirm_password">confirm password</string>
     <string name="email">email</string>
+    <string name="new_password">new password</string>
+    <string name="old_password">old password</string>
+    <string name="edit_age">age</string>
+    <string name="address">address</string>
 
     <!-- CATEGORIES -->
     <string name="vintage">Vintage</string>
@@ -33,18 +37,27 @@
     <string name="b_and_w"><![CDATA[B&W]]></string>
 
     <!-- ERROR MESSAGES -->
-    <string name="empty_name">Name must not be empty!</string>
+    <string name="empty_name">Name must not be empty or less than 2 symbols!</string>
     <string name="empty_username">Username must not be empty!</string>
     <string name="invalid_email">Email is not valid!</string>
-    <string name="invalid_password">The password is too short!</string>
+    <string name="invalid_password">Must contain at least 8 chars, 1 letter and 1 number!</string>
     <string name="password_mismatch">Passwords do not match!</string>
     <string name="existing_username">Username already exists!</string>
     <string name="existing_email">Email already exists!</string>
     <string name="wrong_password">Invalid password!</string>
     <string name="wrong_username">Invalid username!</string>
+    <string name="invalid_age">Age is not a valid number!</string>
+    <string name="invalid_address">Address too short!</string>
 
-    <string name="title_activity_navigation">NavigationActivity</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="action_settings">Settings</string>
+    <!-- TITLES -->
+    <string name="edit_profile">Edit profile</string>
+
+    <!-- MENU ITEMS -->
+    <string name="item_upload">Upload</string>
+    <string name="item_log_out">Log out</string>
+    <string name="item_my_gallery">My gallery</string>
+    <string name="item_profile">Profile</string>
+    <string name="item_save">Save</string>
+    <string name="item_share_via">Share via…</string>
+    <string name="item_set_as">Set as…</string>
 </resources>

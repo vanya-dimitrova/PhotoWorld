@@ -3,11 +3,10 @@ package com.example.user.photoworld.model;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.HashSet;
-import java.util.Stack;
 
 public class User implements Serializable, Cloneable{
+
+	public enum Role {USER, AUTHOR}
 
 	private final String username;
 	private final String email;
@@ -16,21 +15,31 @@ public class User implements Serializable, Cloneable{
 	private String name;
 	private String address;
 	private int age;
-	protected boolean isPhotographer;
 	private boolean beNotified;
 	private File profilePicture;
 	private ArrayList<Comment> madeComments;
-	private HashSet<Photo> photos;
-	private Stack<Photo> photographerPhotos;
+	public Role role;
 
-	public User(String name, String username, String email, String password, boolean isPhotographer) {
+	public User(String name, String username, String email, String password) {
 		this.username = username;
 		this.password = password;
 		this.email = email; // TODO validation
-		this.isPhotographer = isPhotographer;
 		this.name = name;
 		beNotified = true;
+		this.role = Role.USER;
 		madeComments = new ArrayList<>();
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public Role getRole() {
+		return role;
 	}
 
 	public String getUserName() {
@@ -45,10 +54,20 @@ public class User implements Serializable, Cloneable{
 		return this.email;
 	}
 
-	private void setAge(int age) {
-		if (age > 0 && age <= 100) {
-			this.age = age;
-		}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
 	}
 	
 	boolean confirmPassword(String pass1, String pass2) {
@@ -80,20 +99,6 @@ public class User implements Serializable, Cloneable{
 			return;
 		}
 		this.password = newPassword;
-	}
-
-	Photo uploadPhoto() {
-		this.photographerPhotos.peek().uploadDate = Calendar.getInstance().getTime();
-		return this.photographerPhotos.pop();
-	}
-	
-	Photo offerPhoto() {
-		return this.photographerPhotos.peek();
-	}
-
-	Photo removePhoto(Photo photo) {
-		photos.remove(photo);
-		return photo;
 	}
 	
 	private void changeNotificationOption() {

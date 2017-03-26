@@ -11,10 +11,10 @@ import java.util.TreeSet;
 public class PhotoWorld implements Serializable{
 	
 	private static PhotoWorld photoWorld;
-	private String currentUser;
+	public static String currentUser;
 
-	private HashMap<Category, TreeSet<Photo>> photos;
-	private HashMap<String, User> users;
+	private static HashMap<Category, TreeSet<Photo>> photos;
+	private static HashMap<String, User> users;
 	
 	private PhotoWorld() {
 		this.setCategories();
@@ -75,10 +75,10 @@ public class PhotoWorld implements Serializable{
 	public boolean checkPassword(String userName, String password) {
 		if (this.users.containsKey(userName)) {
 			if (this.users.get(userName).getPassword().equals(password)) {
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 
 	public void login(String username) {
@@ -101,17 +101,13 @@ public class PhotoWorld implements Serializable{
 		}
 	}
 
-	private void updatePhotos(User photographer, String category) { //TODO remove user param
-		if(photographer.isPhotographer){
-			if (!this.photos.get(category).contains(photographer.offerPhoto())) {
-				this.photos.get(category).add(this.users.get(photographer).uploadPhoto());
+	private void updatePhotos(Author author, String category) {
+			if (!this.photos.get(category).contains(author.offerPhoto())) {
+				this.photos.get(category).add(((Author)this.users.get(author)).uploadPhoto());
 				this.notifyUsers();		
 		    } else {
 		    	System.out.println("Photo already exists!");
 		    }
-		} else {
-			System.out.println("Unauthorised operation!");
-		}
 	}		
 	
 	private void notifyUsers(){
@@ -198,28 +194,5 @@ public class PhotoWorld implements Serializable{
 	private void removePhoto(Category category, Photo photo) {
 		photos.get(category).remove(photo);
 	}
-	
-	private void setPhotoAs() {
-		// TODO check for better collection to get a picture depending on app building
-	}
 
-	private void sharePhoto() {
-		// TODO check for better collection to get a picture depending on app building
-	}
-	
-	private void downloadPhoto() {
-		// TODO check for better collection to get a picture depending on app building
-	}
-
-	private void ratePhoto() {
-		// TODO check for better collection to get a picture depending on app building
-	}
-	
-	private void commentOnPhoto(String text){
-		// TODO check for better collection to get a picture depending on app building
-	}
-	
-	private void rateComment() {
-		// TODO check for better collection to get a comment depending on app building
-	}	
 }
