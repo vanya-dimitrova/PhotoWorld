@@ -16,7 +16,6 @@ public class ProfileActivity extends AppCompatActivity{
     private TextView age;
     private TextView rating;
     private TextView uploads;
-    private User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +32,7 @@ public class ProfileActivity extends AppCompatActivity{
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null && bundle.getSerializable("user") != null) {
-            currentUser = (User) getIntent().getExtras().getSerializable("user");
-
+            MainActivity.currentUser = (User) getIntent().getExtras().getSerializable("user");
         }
-
-/*
-        ((TextView)findViewById(R.id.name)).setText(user.getUserName());
-        ((TextView)findViewById(R.id.username)).setText(user.getUserName());
-        ((TextView)findViewById(R.id.email)).setText(user.getUserName()); */
     }
 }

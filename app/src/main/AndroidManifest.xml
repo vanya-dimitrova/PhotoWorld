@@ -15,10 +15,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".GalleryViewActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".PhotoViewActivity">
-
             <!-- <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".GalleryViewActivity" /> -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,15 +24,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
         <activity android:name=".EditProfileActivity"></activity>
-=======
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
         <activity android:name=".GalleryActivity" />
-        <activity android:name=".ProfileActivity" />
         <activity android:name=".CategoryActivity"/>
->>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
     </application>
 
 </manifest>

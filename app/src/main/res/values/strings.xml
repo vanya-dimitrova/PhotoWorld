@@ -50,7 +50,6 @@
     <string name="invalid_age">Age is not a valid number!</string>
     <string name="invalid_address">Address too short!</string>
 
-<<<<<<< HEAD
     <!-- TITLES -->
     <string name="edit_profile">Edit profile</string>
 
@@ -62,7 +61,4 @@
     <string name="item_save">Save</string>
     <string name="item_share_via">Share via…</string>
     <string name="item_set_as">Set as…</string>
-=======
-
->>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
 </resources>

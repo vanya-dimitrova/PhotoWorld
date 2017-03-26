@@ -10,14 +10,14 @@
     android:gravity="center_horizontal"
     android:background="@drawable/background">
 
+    <include
+        layout="@layout/app_bar"
+        android:id="@+id/toolbar" />
 
     <ScrollView
         android:id="@+id/scroll_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
     </ScrollView>
-
 </LinearLayout>

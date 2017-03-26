@@ -9,6 +9,8 @@ import android.widget.EditText;
 
 import com.example.user.photoworld.model.User;
 
+import static com.example.user.photoworld.MainActivity.currentUser;
+
 public class EditProfileActivity extends AppCompatActivity {
 
     private EditText name;
@@ -19,7 +21,6 @@ public class EditProfileActivity extends AppCompatActivity {
     private EditText confirmPass;
     private Button cancel;
     private Button save;
-    private User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,6 +1,5 @@
 package com.example.user.photoworld;
 
-import android.app.WallpaperManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
@@ -10,8 +9,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
-
-import java.io.IOException;
 
 public class PhotoViewActivity extends AppCompatActivity {
 
@@ -69,13 +66,14 @@ public class PhotoViewActivity extends AppCompatActivity {
     private void shareImage() {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("image/*");
+        // not sure if correct
         String uri = "android.resource://" + getPackageName() + getResources().getResourceEntryName(R.id.image_view);
         intent.putExtra(Intent.EXTRA_STREAM, uri);
         startActivity(Intent.createChooser(intent, "Share via"));
     }
 
     private void setImageAs() {
-
+        /*
         image.setImageResource(R.id.image_view);
         WallpaperManager myWallpaperManager = WallpaperManager.getInstance(getApplicationContext());
         try {
@@ -83,5 +81,6 @@ public class PhotoViewActivity extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        */
     }
 }

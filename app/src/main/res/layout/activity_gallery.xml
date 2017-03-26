@@ -9,16 +9,9 @@
     android:orientation="vertical"
     tools:context="com.example.user.photoworld.GalleryActivity">
 
-    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:background="@color/colorDarkBackground"
-        android:elevation="4dp">
-
-
-    </android.support.v7.widget.Toolbar>
+    <include
+        layout="@layout/app_bar"
+        android:id="@+id/toolbar" />
 
     <ScrollView
         android:layout_width="match_parent"

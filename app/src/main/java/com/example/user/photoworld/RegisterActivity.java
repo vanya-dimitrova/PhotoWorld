@@ -9,8 +9,9 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 
 import com.example.user.photoworld.model.Author;
-import com.example.user.photoworld.model.PhotoWorld;
 import com.example.user.photoworld.model.User;
+
+import static com.example.user.photoworld.MainActivity.gallery;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -19,11 +20,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private EditText confirmPassword;
-<<<<<<< HEAD
-    private PhotoWorld gallery;
-
-=======
->>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
     private RadioButton authorRadioButton;
     private Button registerButton;
 
@@ -39,14 +35,10 @@ public class RegisterActivity extends AppCompatActivity {
         confirmPassword = (EditText) this.findViewById(R.id.confirm_password);
         authorRadioButton = (RadioButton) this.findViewById(R.id.radio_author);
         registerButton = (Button) this.findViewById(R.id.register_button);
-        gallery = PhotoWorld.getPhotoWorld();
 
         registerButton.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-<<<<<<< HEAD
-
                 String nameStr = name.getText().toString();
                 String usernameStr = username.getText().toString();
                 String emailStr = email.getText().toString();
@@ -54,29 +46,16 @@ public class RegisterActivity extends AppCompatActivity {
                 String confirmPassStr = confirmPassword.getText().toString();
 
                 if(isValidData(nameStr, usernameStr, emailStr, passStr, confirmPassStr)) {
-=======
-                if(isValidData(MainActivity.gallery)) {
->>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
                     User user;
                     if (authorRadioButton.isChecked()) {
                         user = new Author(name.getText().toString(), username.getText().toString(), email.getText().toString(), password.getText().toString());
                     } else {
                         user = new User(name.getText().toString(), username.getText().toString(), email.getText().toString(), password.getText().toString());
                     }
-<<<<<<< HEAD
-                    PhotoWorld.getPhotoWorld().register(user);
-
-                    Intent intent = new Intent(RegisterActivity.this, GalleryViewActivity.class);
-                    intent.putExtra("user", user);
-=======
-                    MainActivity.gallery.register(user);
-
-                    // CHECKING PROFILE PAGE
-                    //Intent intent = new Intent(RegisterActivity.this, ProfileActivity.class);
-
+                    gallery.register(user);
                     Intent intent = new Intent(RegisterActivity.this, GalleryActivity.class);
->>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
-                    RegisterActivity.this.startActivity(intent);
+                    intent.putExtra("user", user);
+                    startActivity(intent);
                     finish();
                 }
             }

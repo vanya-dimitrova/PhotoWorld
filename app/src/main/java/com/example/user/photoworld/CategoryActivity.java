@@ -16,10 +16,9 @@ import java.util.TreeSet;
 
 public class CategoryActivity extends AppCompatActivity {
 
-    ScrollView scroller;
-    LinearLayout linLayout;
-    ImageView photo;
-
+    private ScrollView scroller;
+    private LinearLayout linLayout;
+    private ImageView photo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

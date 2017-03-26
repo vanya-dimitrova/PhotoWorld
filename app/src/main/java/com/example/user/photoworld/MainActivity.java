@@ -7,14 +7,15 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.user.photoworld.model.PhotoWorld;
+import com.example.user.photoworld.model.User;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button signUp;
-    private Button logIn;
+    private Button login;
 
-    static PhotoWorld gallery = PhotoWorld.getPhotoWorld();
-
+    public static PhotoWorld gallery = PhotoWorld.getPhotoWorld();
+    public static User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button logIn = (Button) findViewById(R.id.log_in);
-        logIn.setOnClickListener(new View.OnClickListener() {
+        Button login = (Button) findViewById(R.id.log_in);
+        login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);

@@ -2,7 +2,12 @@ package com.example.user.photoworld;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -11,25 +16,25 @@ import com.example.user.photoworld.model.Photo;
 
 public class GalleryActivity extends AppCompatActivity {
 
-    ImageView abstractionImage;
-    ImageView animalImage;
-    ImageView blackWhiteImage;
-    ImageView flowerImage;
-    ImageView foodImage;
-    ImageView macroImage;
-    ImageView natureImage;
-    ImageView patternImage;
-    ImageView peopleImage;
-    ImageView portraitImage;
-    ImageView sportImage;
-    ImageView vintageImage;
-
+    private ImageView abstractionImage;
+    private ImageView animalImage;
+    private ImageView blackWhiteImage;
+    private ImageView flowerImage;
+    private ImageView foodImage;
+    private ImageView macroImage;
+    private ImageView natureImage;
+    private ImageView patternImage;
+    private ImageView peopleImage;
+    private ImageView portraitImage;
+    private ImageView sportImage;
+    private ImageView vintageImage;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gallery);
-
+        setSupportActionBar(toolbar);
 
         abstractionImage = (ImageView) findViewById(R.id.abstraction_image);
         abstractionImage.setOnClickListener(new View.OnClickListener() {
@@ -151,8 +156,28 @@ public class GalleryActivity extends AppCompatActivity {
                 GalleryActivity.this.startActivity(i);
             }
         });
-
-
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_gallery, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.item_profile:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            case R.id.item_my_gallery:
+                return true;
+            case R.id.item_upload:
+                return true;
+            case R.id.item_log_out:
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

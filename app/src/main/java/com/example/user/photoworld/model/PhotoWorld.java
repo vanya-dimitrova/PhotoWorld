@@ -3,7 +3,6 @@ package com.example.user.photoworld.model;
 import com.example.user.photoworld.model.Photo.Category;
 
 import java.io.Serializable;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -202,8 +201,6 @@ public class PhotoWorld implements Serializable{
 		photos.get(category).remove(photo);
 	}
 
-<<<<<<< HEAD
-=======
 	private void ratePhoto() {
 		// TODO check for better collection to get a picture depending on app building
 	}
@@ -216,10 +213,8 @@ public class PhotoWorld implements Serializable{
 		// TODO check for better collection to get a comment depending on app building
 	}
 
-
 	// TODO remove this method if necessary
 	public void addPhoto(Category category, Photo photo){
 		this.photos.get(category).add(photo);
 	}
->>>>>>> 2566fb9dfe8943c75bbc2bbe29bb6721c752b817
 }
