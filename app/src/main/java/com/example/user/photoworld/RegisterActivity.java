@@ -77,8 +77,7 @@ public class RegisterActivity extends AppCompatActivity {
             username.setError(getString(R.string.existing_username));
             isValid = false;
         }
-        if (emailStr.isEmpty() || !emailStr.matches("^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*\n" +
-                                                    "@[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})$")) {
+        if (emailStr.isEmpty() || !emailStr.matches("^(.+)@(.+)$")) {
             email.setError(getString(R.string.invalid_email));
             isValid = false;
         }
