@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.TreeSet;
 
+import static com.example.user.photoworld.MainActivity.gallery;
+
 
 public class CategoryActivity extends AppCompatActivity {
 
@@ -27,13 +29,13 @@ public class CategoryActivity extends AppCompatActivity {
         scroller = (ScrollView) findViewById(R.id.scroll_category);
 
         Photo.Category category = (Photo.Category) getIntent().getSerializableExtra("category");
-        MainActivity.gallery.addPhoto(category, new Photo("Pencho", R.drawable.abstraction_1, "ooo", category));
-        MainActivity.gallery.addPhoto(category, new Photo("Vancho", R.drawable.abstraction_2, "ooo", category));
-        MainActivity.gallery.addPhoto(category, new Photo("Gencho", R.drawable.abstraction_3, "ooo", category));
+        gallery.addPhoto(category, new Photo("Pencho", R.drawable.abstraction_1, "ooo", category));
+        gallery.addPhoto(category, new Photo("Vancho", R.drawable.abstraction_2, "ooo", category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.abstraction_3, "ooo", category));
 
-        HashMap<Photo.Category, TreeSet<Photo>> photos = MainActivity.gallery.getPhotos();
-
+        HashMap<Photo.Category, TreeSet<Photo>> photos = gallery.getPhotos();
         TreeSet<Photo> photosByCategory = photos.get(category);
+
         int size = photosByCategory.size();
         if (size != 0) {
             Iterator<Photo> iterator = photosByCategory.iterator();
