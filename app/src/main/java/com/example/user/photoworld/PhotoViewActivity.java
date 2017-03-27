@@ -47,6 +47,18 @@ public class PhotoViewActivity extends AppCompatActivity {
             case R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
+            case R.id.item_profile:
+                startActivity(new Intent(PhotoViewActivity.this, MyGalleryActivity.class));
+                finish();
+                return true;
+            case R.id.item_my_gallery:
+                startActivity(new Intent(PhotoViewActivity.this, MyGalleryActivity.class));
+                finish();
+                return true;
+            case R.id.item_upload:
+                return true;
+            case R.id.item_log_out:
+                return true;
             case R.id.item_save:
                 saveImageFile();
                 return true;

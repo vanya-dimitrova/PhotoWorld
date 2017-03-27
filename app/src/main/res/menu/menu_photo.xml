@@ -3,6 +3,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/item_profile"
+        android:title="@string/item_profile" />
+
+    <item
+        android:id="@+id/item_my_gallery"
+        android:title="@string/item_my_gallery" />
+
+    <item
+        android:id="@+id/item_upload"
+        android:title="@string/item_upload" />
+
+    <item
         android:id="@+id/item_save"
         android:title="@string/item_save" />
 
@@ -13,5 +25,9 @@
     <item
         android:id="@+id/item_set_as"
         android:title="@string/item_set_as" />
+
+    <item
+        android:id="@+id/item_log_out"
+        android:title="@string/item_log_out" />
 
 </menu>

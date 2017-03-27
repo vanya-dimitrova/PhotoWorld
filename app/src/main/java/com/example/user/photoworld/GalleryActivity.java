@@ -2,7 +2,6 @@ package com.example.user.photoworld;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -169,9 +168,12 @@ public class GalleryActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_profile:
-                NavUtils.navigateUpFromSameTask(this);
+                startActivity(new Intent(GalleryActivity.this, MyGalleryActivity.class));
+                finish();
                 return true;
             case R.id.item_my_gallery:
+                startActivity(new Intent(GalleryActivity.this, MyGalleryActivity.class));
+                finish();
                 return true;
             case R.id.item_upload:
                 return true;
