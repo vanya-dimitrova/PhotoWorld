@@ -3,6 +3,7 @@ package com.example.user.photoworld.model;
 import com.example.user.photoworld.model.Photo.Category;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -14,7 +15,7 @@ public class PhotoWorld implements Serializable{
 	private static PhotoWorld photoWorld;
 	public static String currentUser;
 
-	private static HashMap<Category, TreeSet<Photo>> photos;
+	public HashMap<Category, ArrayList<Photo>> photos;
 	private static HashMap<String, User> users;
 	
 	private PhotoWorld() {
@@ -35,24 +36,25 @@ public class PhotoWorld implements Serializable{
 
 
 	private void setCategories() {
-		this.photos = new HashMap<Category, TreeSet<Photo>>();
-		this.photos.put(Category.ABSTRACT, new TreeSet<Photo>());
-		this.photos.put(Category.ANIMAL, new TreeSet<Photo>());
-		this.photos.put(Category.BLACK_AND_WHITE, new TreeSet<Photo>());
-		this.photos.put(Category.FLOWER, new TreeSet<Photo>());
-		this.photos.put(Category.FOOD, new TreeSet<Photo>());
-		this.photos.put(Category.MACRO, new TreeSet<Photo>());
-		this.photos.put(Category.NATURE, new TreeSet<Photo>());
-		this.photos.put(Category.PATTERN, new TreeSet<Photo>());
-		this.photos.put(Category.PEOPLE, new TreeSet<Photo>());
-		this.photos.put(Category.PORTRAIT, new TreeSet<Photo>());
-		this.photos.put(Category.SPORT, new TreeSet<Photo>());
-		this.photos.put(Category.VINTAGE, new TreeSet<Photo>());
+		this.photos = new HashMap<Category, ArrayList<Photo>>();
+		this.photos.put(Category.ABSTRACT, new ArrayList<Photo>());
+		this.photos.put(Category.ANIMAL,new ArrayList<Photo>());
+		this.photos.put(Category.BLACK_AND_WHITE, new ArrayList<Photo>());
+		this.photos.put(Category.FLOWER, new ArrayList<Photo>());
+		this.photos.put(Category.FOOD, new ArrayList<Photo>());
+		this.photos.put(Category.MACRO, new ArrayList<Photo>());
+		this.photos.put(Category.NATURE, new ArrayList<Photo>());
+		this.photos.put(Category.PATTERN, new ArrayList<Photo>());
+		this.photos.put(Category.PEOPLE, new ArrayList<Photo>());
+		this.photos.put(Category.PORTRAIT, new ArrayList<Photo>());
+		this.photos.put(Category.SPORT, new ArrayList<Photo>());
+		this.photos.put(Category.VINTAGE, new ArrayList<Photo>());
 	}
 
-	public HashMap<Category, TreeSet<Photo>> getPhotos() {
-		return (HashMap<Category, TreeSet<Photo>>) Collections.unmodifiableMap(this.photos);
-	}
+	// can't use it in category activity
+//	public HashMap<Category, ArrayList<Photo>> getPhotos() {
+//		return (HashMap<Category, ArrayList<Photo>>) Collections.unmodifiableMap(this.photos);
+//	}
 
 	//done
 	public void register(User user) {
@@ -96,7 +98,7 @@ public class PhotoWorld implements Serializable{
 	}
 
 	private void showOnePhotoPerCategory() {
-		for (Iterator<TreeSet<Photo>> itCategory = photos.values().iterator(); itCategory.hasNext();) {
+		for (Iterator<ArrayList<Photo>> itCategory = photos.values().iterator(); itCategory.hasNext();) {
 			Iterator<Photo> itPhoto = itCategory.next().iterator();
 			if (itPhoto != null && itPhoto.hasNext()) {
 				//TODO appropriate visualization code
@@ -126,22 +128,22 @@ public class PhotoWorld implements Serializable{
 		//TODO send email code
 	}																								
 																						
-	private void showPhotographerPhotos(String username) {
-		boolean containsPhotographer = false;
-		for (Iterator<TreeSet<Photo>> itCategory = photos.values().iterator(); itCategory.hasNext();) {
-			Iterator<Photo> itPhotos = itCategory.next().iterator();
-			if (itPhotos != null && itPhotos.hasNext()) {
-				Photo photo = itPhotos.next();
-				if (photo.getPhotographer().equals(username)) {
-					//TODO appropriate visualization code
-					containsPhotographer = true;
-				}
-			}
-		}
-		if (!containsPhotographer) {
-			System.out.println("Not found!");
-		}
-	}
+//	private void showPhotographerPhotos(String username) {
+//		boolean containsPhotographer = false;
+//		for (Iterator<TreeSet<Photo>> itCategory = photos.values().iterator(); itCategory.hasNext();) {
+//			Iterator<Photo> itPhotos = itCategory.next().iterator();
+//			if (itPhotos != null && itPhotos.hasNext()) {
+//				Photo photo = itPhotos.next();
+//				if (photo.getPhotographer().equals(username)) {
+//					//TODO appropriate visualization code
+//					containsPhotographer = true;
+//				}
+//			}
+//		}
+//		if (!containsPhotographer) {
+//			System.out.println("Not found!");
+//		}
+//	}
 	
 	private void showCategoryByDate(String category) {
 		if (this.photos.get(category) != null) {

@@ -33,7 +33,7 @@ public class EditProfileActivity extends AppCompatActivity {
         oldPass = (EditText) findViewById(R.id.edit_old_pass);
         newPass = (EditText) findViewById(R.id.edit_new_pass);
         confirmPass = (EditText) findViewById(R.id.edit_confirm_pass);
-        cancel = (Button) findViewById(R.id.save_btn);
+        cancel = (Button) findViewById(R.id.cancel_btn);
         save = (Button) findViewById(R.id.save_btn);
 
         Bundle bundle = getIntent().getExtras();
@@ -41,7 +41,8 @@ public class EditProfileActivity extends AppCompatActivity {
             currentUser = (User) bundle.getSerializable("user");
             this.name.setText(currentUser.getName());
             if (address != null) {
-                this.address.setText(currentUser.getPassword());
+                // no address method
+              //  this.address.setText(currentUser.getPassword());
             }
             if (age != null) {
                 this.age.setText(currentUser.getAge());
