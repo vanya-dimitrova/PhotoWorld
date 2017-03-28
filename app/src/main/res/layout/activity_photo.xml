@@ -10,9 +10,9 @@
 
     <ImageView
         android:id="@+id/image_view"
+        android:src="@drawable/catz"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorImageBackground"
-        android:src="@drawable/catz"/>
+        android:background="@color/colorImageBackground" />
 
 </LinearLayout>

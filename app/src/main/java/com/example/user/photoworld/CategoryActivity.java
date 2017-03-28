@@ -11,25 +11,27 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.view.View;
 
 import com.example.user.photoworld.model.Photo;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.TreeSet;
 
 import static com.example.user.photoworld.MainActivity.gallery;
 
 
 public class CategoryActivity extends AppCompatActivity {
 
-    private ScrollView scroller;
     private LinearLayout linLayout;
+    private LinearLayout newLayout;
     private ImageView photo;
     private Toolbar toolbar;
+    private ScrollView scroller;
 
+    private HashMap<Photo.Category, ArrayList<Photo>> photos;
+    private ArrayList<Photo> photosByCategory;
     private Photo.Category category;
-    private HashMap<Photo.Category, TreeSet<Photo>> photos;
-    private TreeSet<Photo> photosByCategory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,43 +51,54 @@ public class CategoryActivity extends AppCompatActivity {
             gallery.addPhoto(category, new Photo("Pencho", R.drawable.abstraction_1, "ooo", category));
             gallery.addPhoto(category, new Photo("Vancho", R.drawable.abstraction_2, "ooo", category));
             gallery.addPhoto(category, new Photo("Gencho", R.drawable.abstraction_3, "ooo", category));
+            gallery.addPhoto(category, new Photo("Gencho", R.drawable.animal, "ooo", category));
+            gallery.addPhoto(category, new Photo("Gencho", R.drawable.b_white, "ooo", category));
+            gallery.addPhoto(category, new Photo("Gencho", R.drawable.flower, "ooo", category));
+            gallery.addPhoto(category, new Photo("Gencho", R.drawable.macro, "ooo", category));
             getSupportActionBar().setTitle("Category");
         }
-    /*
-        photos = gallery.getPhotos();
-        photosByCategory = photos.get(category);
+
+        this.photos = gallery.photos;
+        photosByCategory = this.photos.get(category);
 
         int size = photosByCategory.size();
+        linLayout = (LinearLayout) findViewById(R.id.linear_scrollviewChild);
+
         if (size != 0) {
-            Iterator<Photo> iterator = photosByCategory.iterator();
-            for (int i = 0; i < size / 2; i++) {
-                linLayout = new LinearLayout(this);
-                linLayout.setOrientation(LinearLayout.HORIZONTAL);
+            int x = 0;
+            for (int i = 0; i < (size + 1) / 2; i++) {
+                newLayout = new LinearLayout(this);
+                newLayout.setOrientation(LinearLayout.HORIZONTAL);
                 LinearLayout.LayoutParams lLParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-                linLayout.setLayoutParams(lLParams);
-                linLayout.setPadding(10, 10, 10, 10);
-                scroller.addView(linLayout);
+                newLayout.setLayoutParams(lLParams);
+                newLayout.setPadding(10, 10, 10, 10);
+                linLayout.addView(newLayout);
 
                 for (int j = 0; j < 2; j++) {
-                    if (iterator.hasNext()) {
+                        if (photosByCategory.get(x) != null) {
                         photo = new ImageView(this);
-                        photo.setMaxHeight(120);
-                        photo.setMaxWidth(linLayout.getWidth() / 2);
-                        photo.setImageResource(iterator.next().photoId);
-                        linLayout.addView(photo);
+                        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT);
+                        photo.setLayoutParams(param);
+                        param.weight = 1.0f;
+                        photo.setLayoutParams(param);
+                        photo.setMaxHeight(130);
+                        photo.setAdjustViewBounds(true);
+                        photo.setImageResource(photosByCategory.get(x).photoId);
+                        final Photo photoToVisualise = photosByCategory.get(x);
+                        photo.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(CategoryActivity.this, PhotoViewActivity.class);
+                                intent.putExtra("photo", photoToVisualise);
+                                CategoryActivity.this.startActivity(intent);
+                            }
+                        });
+                        newLayout.addView(photo);
+                        x++;
                     }
                 }
             }
-        } else {
-            TextView text = new TextView(this);
-
-            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            text.setText("Nesto ne e nared");
-            text.setTextSize(50);
-            text.setLayoutParams(param);
-            scroller.addView(text);
         }
-    */
     }
 
     @Override

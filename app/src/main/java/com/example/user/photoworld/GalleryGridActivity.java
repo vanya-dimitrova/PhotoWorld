@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -18,7 +19,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class GalleryGridActivity extends AppCompatActivity {
+public class GalleryGridActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
     private GridView grid;
     private Toolbar toolbar;
@@ -44,7 +45,7 @@ public class GalleryGridActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.item_profile:
-                startActivity(new Intent(GalleryGridActivity.this, MyGalleryActivity.class));
+                startActivity(new Intent(GalleryGridActivity.this, ProfileActivity.class));
                 finish();
                 return true;
             case R.id.item_my_gallery:
@@ -52,11 +53,19 @@ public class GalleryGridActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.item_upload:
+                startActivity(new Intent(GalleryGridActivity.this, UploadDialogActivity.class));
                 return true;
             case R.id.item_log_out:
+                startActivity(new Intent(GalleryGridActivity.this, LogoutDialogActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(GalleryGridActivity.this, CategoryActivity.class);
+        startActivity(intent);
     }
 }
 

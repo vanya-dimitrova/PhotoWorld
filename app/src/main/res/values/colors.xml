@@ -5,7 +5,7 @@
     <color name="colorPrimaryLessDark">#4b4a4a</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorWhitish">#FFFFF0</color>
-    <color name="colorTransparent">#80000000</color>
+    <color name="colorTransparent">#60000000</color>
     <color name="colorDarkBackground">#C1000000</color>
     <color name="colorToolbar">#000000</color>
     <color name="colorImageBackground">#141414</color>

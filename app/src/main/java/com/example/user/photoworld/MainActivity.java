@@ -14,13 +14,15 @@ public class MainActivity extends AppCompatActivity {
     private Button signUp;
     private Button login;
 
-    public static PhotoWorld gallery = PhotoWorld.getPhotoWorld();
+    public static PhotoWorld gallery;
     public static User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        gallery = PhotoWorld.getPhotoWorld();
 
         Button signUp = (Button) findViewById(R.id.sign_up);
         signUp.setOnClickListener(new View.OnClickListener() {

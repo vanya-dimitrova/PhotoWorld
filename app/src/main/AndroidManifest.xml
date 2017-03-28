@@ -12,10 +12,11 @@
         android:roundIcon="@mipmap/photo_world"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity">
+        </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".GalleryActivity"></activity>
+        <activity android:name=".GalleryActivity" />
         <activity android:name=".CategoryActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -27,6 +28,10 @@
                 android:value=".GalleryActivity" />
         </activity>
         <activity android:name=".PhotoViewActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CategoryActivity" />
@@ -41,13 +46,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".GalleryActivity" />
         </activity>
-        <activity android:name=".GalleryGridActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".GalleryGridActivity" />
+        <activity
+            android:name=".LogoutDialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"></activity>
+        <activity android:name=".UploadDialogActivity"></activity>
     </application>
 
 </manifest>

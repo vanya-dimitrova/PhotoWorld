@@ -10,6 +10,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.example.user.photoworld.model.Photo;
+
 public class PhotoViewActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
@@ -22,6 +24,10 @@ public class PhotoViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
+
+        Photo photoToGet = (Photo) getIntent().getSerializableExtra("photo");
+        image = (ImageView) findViewById(R.id.image_view);
+        //image.setImageResource(photoToGet.photoId);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         itemSave = (MenuItem) findViewById(R.id.item_save);
@@ -56,8 +62,10 @@ public class PhotoViewActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.item_upload:
+                startActivity(new Intent(PhotoViewActivity.this, UploadDialogActivity.class));
                 return true;
             case R.id.item_log_out:
+                startActivity(new Intent(PhotoViewActivity.this, LogoutDialogActivity.class));
                 return true;
             case R.id.item_save:
                 saveImageFile();

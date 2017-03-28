@@ -77,4 +77,6 @@
     <string name="item_share_via">Share via…</string>
     <string name="item_set_as">Set as…</string>
     <string name="item_edit">Edit</string>
+    <string name="logout_message">Are you sure you want ot log out?</string>
+    <string name="upload_photo">Upload photo</string>
 </resources>
