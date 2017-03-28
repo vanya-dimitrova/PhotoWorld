@@ -14,6 +14,13 @@
         layout="@layout/app_bar"
         android:id="@+id/toolbar" />
 
+
+    <TextView
+        android:id="@+id/text_emptyCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:enabled="false"/>
+
     <ScrollView
         android:id="@+id/scroll_category"
         android:layout_width="match_parent"

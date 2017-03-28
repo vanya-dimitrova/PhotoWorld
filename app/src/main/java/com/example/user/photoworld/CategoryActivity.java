@@ -80,5 +80,8 @@ public class CategoryActivity extends AppCompatActivity {
                 }
             }
         }
+        else{
+
+        }
     }
 }

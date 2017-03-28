@@ -23,7 +23,7 @@
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".PhotoViewActivity">
-            <!-- <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".GalleryViewActivity" /> -->
+            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".CategoryActivity" />
         </activity>
         <activity android:name=".EditProfileActivity"></activity>
         <activity android:name=".GalleryActivity" />
