@@ -30,6 +30,10 @@ public class User implements Serializable, Cloneable{
 		madeComments = new ArrayList<>();
 	}
 
+	public String getAddress() {
+		return address;
+	}
+
 	public String getName() {
 		return name;
 	}

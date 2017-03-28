@@ -29,7 +29,7 @@ public class MyGalleryActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_gallery, menu);
+        inflater.inflate(R.menu.menu_my_gallery, menu);
         return true;
     }
 
@@ -40,10 +40,6 @@ public class MyGalleryActivity extends AppCompatActivity {
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
             case R.id.item_profile:
-                startActivity(new Intent(MyGalleryActivity.this, MyGalleryActivity.class));
-                finish();
-                return true;
-            case R.id.item_my_gallery:
                 startActivity(new Intent(MyGalleryActivity.this, MyGalleryActivity.class));
                 finish();
                 return true;

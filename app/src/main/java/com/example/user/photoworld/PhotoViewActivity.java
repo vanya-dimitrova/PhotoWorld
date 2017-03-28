@@ -53,8 +53,7 @@ public class PhotoViewActivity extends AppCompatActivity {
             case R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
-            case R.id.item_profile:
-                startActivity(new Intent(PhotoViewActivity.this, MyGalleryActivity.class));
+            case R.id.item_profile:startActivity(new Intent(PhotoViewActivity.this, ProfileActivity .class));
                 finish();
                 return true;
             case R.id.item_my_gallery:
@@ -62,7 +61,7 @@ public class PhotoViewActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.item_upload:
-                startActivity(new Intent(PhotoViewActivity.this, UploadDialogActivity.class));
+               // startActivity(new Intent(PhotoViewActivity.this, UploadDialogActivity.class));
                 return true;
             case R.id.item_log_out:
                 startActivity(new Intent(PhotoViewActivity.this, LogoutDialogActivity.class));
@@ -79,8 +78,10 @@ public class PhotoViewActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    
     private void saveImageFile() {
+       // MediaStore.Images.Media.insertImage(getContentResolver(), yourBitmap, yourTitle , yourDescription);
+
     }
 
     private void shareImage() {
