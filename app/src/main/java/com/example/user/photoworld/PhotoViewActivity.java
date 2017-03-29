@@ -11,13 +11,17 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.example.user.photoworld.model.Photo;
+import com.example.user.photoworld.model.User;
 
 public class PhotoViewActivity extends AppCompatActivity {
+
+    private static final int PICK_IMAGE_REQUEST = 5;
 
     private Toolbar toolbar;
     private MenuItem itemSave;
     private MenuItem itemShare;
     private MenuItem itemSetAs;
+    private MenuItem itemUpload;
     private ImageView image;
 
     @Override
@@ -25,14 +29,23 @@ public class PhotoViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
 
-        Photo photoToGet = (Photo) getIntent().getSerializableExtra("photo");
+
         image = (ImageView) findViewById(R.id.image_view);
         //image.setImageResource(photoToGet.photoId);
-
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         itemSave = (MenuItem) findViewById(R.id.item_save);
         itemShare = (MenuItem) findViewById(R.id.item_share);
         itemSetAs = (MenuItem) findViewById(R.id.item_set_as);
+        itemUpload = (MenuItem) findViewById(R.id.item_upload);
+
+        Bundle bundle = getIntent().getExtras();
+        if (bundle != null && bundle.getSerializable("photo") != null && bundle.getSerializable("user") != null) {
+            Photo photoToGet = (Photo) bundle.getSerializable("photo");
+            MainActivity.currentUser = (User) bundle.getSerializable("user");
+            if (MainActivity.currentUser.getRole().equals(User.Role.USER)) {
+                itemUpload.setVisible(false);
+            }
+        }
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
@@ -61,6 +74,10 @@ public class PhotoViewActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.item_upload:
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGE_REQUEST);
                // startActivity(new Intent(PhotoViewActivity.this, UploadDialogActivity.class));
                 return true;
             case R.id.item_log_out:
@@ -78,10 +95,12 @@ public class PhotoViewActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-    
-    private void saveImageFile() {
-       // MediaStore.Images.Media.insertImage(getContentResolver(), yourBitmap, yourTitle , yourDescription);
 
+    private void saveImageFile() {
+
+       /* image.setDrawingCacheEnabled(true);
+        Bitmap b = image.getDrawingCache();
+        MediaStore.Images.Media.insertImage(getActivity().getContentResolver(), b,title, description);*/
     }
 
     private void shareImage() {
