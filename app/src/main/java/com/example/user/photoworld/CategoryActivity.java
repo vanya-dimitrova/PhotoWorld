@@ -126,11 +126,16 @@ public class CategoryActivity extends AppCompatActivity {
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
             case R.id.item_profile:
-                startActivity(new Intent(CategoryActivity.this, ProfileActivity.class));
-                return true;
+                Intent intent = new Intent(CategoryActivity.this, ProfileActivity.class);
+                intent.putExtra("user", MainActivity.currentUser);
+                startActivity(intent);
             case R.id.item_upload:
+                intent = new Intent(CategoryActivity.this, UploadDialogActivity.class);
+                intent.putExtra("user", MainActivity.currentUser);
+                startActivity(intent);
                 return true;
             case R.id.item_log_out:
+                startActivity(new Intent(CategoryActivity.this, LogoutDialogActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);
