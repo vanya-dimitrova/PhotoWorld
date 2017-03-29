@@ -41,8 +41,7 @@ public class EditProfileActivity extends AppCompatActivity {
             currentUser = (User) bundle.getSerializable("user");
             this.name.setText(currentUser.getName());
             if (address != null) {
-                // no address method
-              //  this.address.setText(currentUser.getPassword());
+              this.address.setText(currentUser.getAddress());
             }
             if (age != null) {
                 this.age.setText(currentUser.getAge());
@@ -65,6 +64,10 @@ public class EditProfileActivity extends AppCompatActivity {
                     currentUser.setAddress(addressStr);
                     currentUser.setPassword(newPass2Str);
                 }
+                Intent returnIntent = getIntent();
+                returnIntent.putExtra("user", currentUser);
+                setResult(EditProfileActivity.RESULT_OK, returnIntent);
+                finish();
             }
         });
 
