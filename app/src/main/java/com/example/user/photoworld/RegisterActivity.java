@@ -53,7 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
                         user = new User(name.getText().toString(), username.getText().toString(), email.getText().toString(), password.getText().toString());
                     }
                     gallery.register(user);
-                    Intent intent = new Intent(RegisterActivity.this, GalleryGridActivity.class);
+                    Intent intent = new Intent(RegisterActivity.this, MyGalleryActivity.class);
                     intent.putExtra("user", user);
                     startActivity(intent);
                     finish();

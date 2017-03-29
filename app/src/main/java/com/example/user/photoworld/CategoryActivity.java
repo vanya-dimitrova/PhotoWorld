@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -34,6 +35,12 @@ public class CategoryActivity extends AppCompatActivity {
     private Photo.Category category;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e("Greshka", "on resume");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
@@ -45,18 +52,16 @@ public class CategoryActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Bundle bundle = new Bundle();
-        if(bundle != null && bundle.getSerializable("category") != null) {
-            category = (Photo.Category) getIntent().getSerializableExtra("category");
-            gallery.addPhoto(category, new Photo("Pencho", R.drawable.abstraction_1, "ooo", category));
-            gallery.addPhoto(category, new Photo("Vancho", R.drawable.abstraction_2, "ooo", category));
-            gallery.addPhoto(category, new Photo("Gencho", R.drawable.abstraction_3, "ooo", category));
-            gallery.addPhoto(category, new Photo("Gencho", R.drawable.animal, "ooo", category));
-            gallery.addPhoto(category, new Photo("Gencho", R.drawable.b_white, "ooo", category));
-            gallery.addPhoto(category, new Photo("Gencho", R.drawable.flower, "ooo", category));
-            gallery.addPhoto(category, new Photo("Gencho", R.drawable.macro, "ooo", category));
-            getSupportActionBar().setTitle("Category");
-        }
+        category = (Photo.Category) getIntent().getSerializableExtra("category");
+        gallery.addPhoto(category, new Photo("Pencho", R.drawable.abstraction_1, "ooo", category));
+        gallery.addPhoto(category, new Photo("Vancho", R.drawable.abstraction_2, "ooo", category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.abstraction_3, "ooo", category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.animal, "ooo", category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.b_white, "ooo", category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.flower, "ooo", category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.macro, "ooo", category));
+        getSupportActionBar().setTitle("Category");
+
 
         this.photos = gallery.photos;
         photosByCategory = this.photos.get(category);
@@ -75,12 +80,11 @@ public class CategoryActivity extends AppCompatActivity {
                 linLayout.addView(newLayout);
 
                 for (int j = 0; j < 2; j++) {
-                        if (photosByCategory.get(x) != null) {
+                    if (photosByCategory.get(x) != null) {
                         photo = new ImageView(this);
                         LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT);
                         photo.setLayoutParams(param);
                         param.weight = 1.0f;
-                        photo.setLayoutParams(param);
                         photo.setMaxHeight(130);
                         photo.setAdjustViewBounds(true);
                         photo.setImageResource(photosByCategory.get(x).photoId);
@@ -97,14 +101,21 @@ public class CategoryActivity extends AppCompatActivity {
                         x++;
                     }
                 }
+                Log.e("greshka", "sled for");
             }
         }
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e("Greshka", "on start");
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_gallery, menu);
+        inflater.inflate(R.menu.menu_my_gallery, menu);
         return true;
     }
 
@@ -116,9 +127,6 @@ public class CategoryActivity extends AppCompatActivity {
                 return true;
             case R.id.item_profile:
                 startActivity(new Intent(CategoryActivity.this, ProfileActivity.class));
-                return true;
-            case R.id.item_my_gallery:
-                startActivity(new Intent(CategoryActivity.this, MyGalleryActivity.class));
                 return true;
             case R.id.item_upload:
                 return true;

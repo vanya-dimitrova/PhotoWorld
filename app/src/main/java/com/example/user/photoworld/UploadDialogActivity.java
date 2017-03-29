@@ -1,5 +1,6 @@
 package com.example.user.photoworld;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 public class UploadDialogActivity extends AppCompatActivity {
 
     private static final int RESULT_LOAD_IMG = 2;
+    private static final int RESULT_LOAD_IMAGE = 1;
+    private static final int RESULT_NOT_LOADED = 6;
 
     private TextView fileName;
     private ImageButton folderIcon;
@@ -27,24 +30,30 @@ public class UploadDialogActivity extends AppCompatActivity {
 
         folderIcon = (ImageButton) findViewById(R.id.upload_icon);
         fileName = (TextView) findViewById(R.id.upload_file_name);
-        cancelButton = (Button) findViewById(R.id.cancel_dialog_btn);
+        cancelButton = (Button) findViewById(R.id.cancel_upload_btn);
         uploadButton = (Button) findViewById(R.id.upload_dialog_btn);
 
+        folderIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(i, RESULT_LOAD_IMAGE);
+            }
+        });
+        /*
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-               // startActivityForResult(intent, RESULT_LOAD_IMG);
-               // finish();
-                //OVERRIDE ON ACTIVITY RESULT
+
             }
         });
+        */
 
-        /*cancelButton.setOnClickListener(new View.OnClickListener() {
+        cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
-        });*/
+        });
     }
 }

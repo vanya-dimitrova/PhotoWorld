@@ -50,32 +50,32 @@ public class EditProfileActivity extends AppCompatActivity {
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                String nameStr = name.getText().toString();
-                String ageStr = age.getText().toString();
-                String addressStr = address.getText().toString();
-                String oldPassStr = oldPass.getText().toString();
-                String newPassStr = newPass.getText().toString();
-                String newPass2Str = confirmPass.getText().toString();
+        public void onClick(View view) {
+            String nameStr = name.getText().toString();
+            String ageStr = age.getText().toString();
+            String addressStr = address.getText().toString();
+            String oldPassStr = oldPass.getText().toString();
+            String newPassStr = newPass.getText().toString();
+            String newPass2Str = confirmPass.getText().toString();
 
-                if(isValidData(nameStr, ageStr, addressStr, oldPassStr, newPassStr, newPass2Str)){
-                    currentUser.setName(nameStr);
-                    currentUser.setAge(Integer.parseInt(ageStr));
-                    currentUser.setAddress(addressStr);
-                    currentUser.setPassword(newPass2Str);
-                }
-                Intent returnIntent = getIntent();
-                returnIntent.putExtra("user", currentUser);
-                setResult(EditProfileActivity.RESULT_OK, returnIntent);
-                finish();
+            if(isValidData(nameStr, ageStr, addressStr, oldPassStr, newPassStr, newPass2Str)){
+                currentUser.setName(nameStr);
+                currentUser.setAge(Integer.parseInt(ageStr));
+                currentUser.setAddress(addressStr);
+                currentUser.setPassword(newPass2Str);
+            }
+            Intent returnIntent = getIntent();
+            returnIntent.putExtra("user", currentUser);
+            setResult(ProfileActivity.RESULT_OK, returnIntent);
+            finish();
             }
         });
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
-                finish();
+        public void onClick(View v) {
+            Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
+            finish();
             }
         });
     }

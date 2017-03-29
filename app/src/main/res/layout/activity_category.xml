@@ -8,23 +8,36 @@
     tools:context="com.example.user.photoworld.GalleryActivity"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    android:background="@drawable/background">
+    android:background="@drawable/background_img2">
 
     <include
         layout="@layout/app_bar"
         android:id="@+id/toolbar" />
 
-    <ScrollView
-        android:id="@+id/scroll_category"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/colorTransparent">
 
-        <LinearLayout
-            android:id="@+id/linear_scrollviewChild"
+        <TextView
+            android:id="@+id/text_emptyCategory"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
 
+        <ScrollView
+            android:id="@+id/scroll_category"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linear_scrollviewChild"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </ScrollView>
         </LinearLayout>
-    </ScrollView>
 </LinearLayout>

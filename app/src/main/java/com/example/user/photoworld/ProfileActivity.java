@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.user.photoworld.model.Author;
@@ -22,7 +21,7 @@ public class ProfileActivity extends AppCompatActivity{
     private TextView username;
     private TextView address;
     private TextView age;
-    private TextView uploads;
+    private TextView email;
     private Toolbar toolbar;
 
     @Override
@@ -34,7 +33,7 @@ public class ProfileActivity extends AppCompatActivity{
         username = (TextView) findViewById(R.id.profile_username);
         address = (TextView) findViewById(R.id.profile_address);
         age = (TextView) findViewById(R.id.profile_age);
-        uploads = (TextView) findViewById(R.id.profile_uploads);
+        email = (TextView) findViewById(R.id.profile_email);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         Bundle bundle = getIntent().getExtras();
@@ -42,23 +41,16 @@ public class ProfileActivity extends AppCompatActivity{
             MainActivity.currentUser = (User) getIntent().getExtras().getSerializable("user");
             name.setText(MainActivity.currentUser.getName());
             username.setText(MainActivity.currentUser.getUserName());
-            if (MainActivity.currentUser.role.equals(User.Role.AUTHOR)) {
-                this.findViewById(R.id.uploads_layout).setVisibility(LinearLayout.VISIBLE);
-                uploads.setText(((Author)MainActivity.currentUser).getUploads());
-            } else {
-                this.findViewById(R.id.uploads_layout).setVisibility(LinearLayout.GONE);
-            }
+            email.setText(((Author)MainActivity.currentUser).getEmail());
             if (MainActivity.currentUser.getAddress() != null) {
-                this.findViewById(R.id.address_layout).setVisibility(LinearLayout.VISIBLE);
                 address.setText(MainActivity.currentUser.getAddress());
             } else {
-                this.findViewById(R.id.address_layout).setVisibility(LinearLayout.GONE);
+                address.setText("-");
             }
             if (MainActivity.currentUser.getAge() != 0) {
-                this.findViewById(R.id.age_layout).setVisibility(LinearLayout.VISIBLE);
                 age.setText(MainActivity.currentUser.getAge());
             } else {
-                this.findViewById(R.id.age_layout).setVisibility(LinearLayout.GONE);
+                age.setText("-");
             }
         }
         setSupportActionBar(toolbar);
@@ -80,10 +72,11 @@ public class ProfileActivity extends AppCompatActivity{
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
             case R.id.item_edit:
-                startActivityForResult(new Intent(ProfileActivity.this, EditProfileActivity.class), SUCCESSFUL_EDIT);
+                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                startActivityForResult(intent, SUCCESSFUL_EDIT);
+                return true;
             case R.id.item_my_gallery:
                 startActivity(new Intent(ProfileActivity.this, MyGalleryActivity.class));
-                finish();
                 return true;
             case R.id.item_upload:
                 startActivity(new Intent(ProfileActivity.this, UploadDialogActivity.class));

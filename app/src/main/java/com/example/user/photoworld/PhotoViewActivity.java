@@ -29,9 +29,7 @@ public class PhotoViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
 
-
         image = (ImageView) findViewById(R.id.image_view);
-        //image.setImageResource(photoToGet.photoId);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         itemSave = (MenuItem) findViewById(R.id.item_save);
         itemShare = (MenuItem) findViewById(R.id.item_share);
@@ -45,6 +43,7 @@ public class PhotoViewActivity extends AppCompatActivity {
             if (MainActivity.currentUser.getRole().equals(User.Role.USER)) {
                 itemUpload.setVisible(false);
             }
+            image.setImageResource(photoToGet.photoId);
         }
 
         setSupportActionBar(toolbar);
@@ -74,11 +73,7 @@ public class PhotoViewActivity extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.item_upload:
-                Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGE_REQUEST);
-               // startActivity(new Intent(PhotoViewActivity.this, UploadDialogActivity.class));
+                startActivity(new Intent(PhotoViewActivity.this, UploadDialogActivity.class));
                 return true;
             case R.id.item_log_out:
                 startActivity(new Intent(PhotoViewActivity.this, LogoutDialogActivity.class));

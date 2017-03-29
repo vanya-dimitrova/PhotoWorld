@@ -14,44 +14,41 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity">
-        </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".GalleryActivity" />
-        <activity android:name=".CategoryActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GalleryActivity" />
-        </activity>
-        <activity android:name=".ProfileActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GalleryActivity" />
-        </activity>
-        <activity android:name=".PhotoViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MyGalleryActivity" />
+        <activity android:name=".CategoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MyGalleryActivity" />
+        </activity>
+        <activity android:name=".ProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MyGalleryActivity" />
+        </activity>
+        <activity android:name=".PhotoViewActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".CategoryActivity" />
         </activity>
+
         <activity android:name=".EditProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".ProfileActivity" />
         </activity>
-        <activity android:name=".MyGalleryActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".GalleryActivity" />
-        </activity>
-        <activity android:name=".GalleryGridActivity" />
         <activity
             android:name=".LogoutDialogActivity"
-            android:theme="@style/Theme.AppCompat.Dialog"></activity>
-        <activity android:name=".UploadDialogActivity"></activity>
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".UploadDialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />/>
     </application>
 
 </manifest>
