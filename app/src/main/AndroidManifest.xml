@@ -3,7 +3,7 @@
     package="com.example.user.photoworld">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
 
     <application
         android:allowBackup="true"
@@ -15,19 +15,43 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".ProfileActivity" />
-        <activity android:name=".PhotoViewActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY" android:value=".CategoryActivity" />
+        <activity android:name=".CategoryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GalleryActivity" />
         </activity>
-        <activity android:name=".EditProfileActivity"></activity>
-        <activity android:name=".GalleryActivity" />
-        <activity android:name=".CategoryActivity"/>
+        <activity android:name=".ProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GalleryActivity" />
+        </activity>
+        <activity android:name=".PhotoViewActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".CategoryActivity" />
+        </activity>
+
+        <activity android:name=".EditProfileActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ProfileActivity" />
+        </activity>
+
+        <activity android:name=".MyGalleryActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GalleryActivity" />
+        </activity>
+        <activity android:name=".GalleryGridActivity" />
+        <activity
+            android:name=".LogoutDialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog"></activity>
+        <activity android:name=".UploadDialogActivity"></activity>
     </application>
 
 </manifest>

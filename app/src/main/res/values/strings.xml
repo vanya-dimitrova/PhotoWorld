@@ -24,6 +24,21 @@
     <string name="address">address</string>
 
     <!-- CATEGORIES -->
+    <string-array name="categories">
+        <item>Vintage</item>
+        <item>Sport</item>
+        <item>Portrait</item>
+        <item>People</item>
+        <item>Pattern</item>
+        <item>Nature</item>
+        <item>Flower</item>
+        <item>Food</item>
+        <item>Macro</item>
+        <item>Abstract</item>
+        <item>Animal</item>
+        <item>Black&amp;White</item>
+    </string-array>
+
     <string name="vintage">Vintage</string>
     <string name="sport">Sport</string>
     <string name="portrait">Portrait</string>
@@ -33,7 +48,7 @@
     <string name="flower">Flower</string>
     <string name="food">Food</string>
     <string name="macro">Macro</string>
-    <string name="abstraction">Abstraction</string>
+    <string name="abstraction">Abstract</string>
     <string name="animal">Animal</string>
     <string name="b_and_w"><![CDATA[Black&White]]></string>
 
@@ -61,4 +76,7 @@
     <string name="item_save">Save</string>
     <string name="item_share_via">Share via…</string>
     <string name="item_set_as">Set as…</string>
+    <string name="item_edit">Edit</string>
+    <string name="logout_message">Are you sure you want ot log out?</string>
+    <string name="upload_photo">Upload photo</string>
 </resources>

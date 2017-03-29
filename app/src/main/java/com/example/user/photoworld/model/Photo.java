@@ -1,6 +1,5 @@
 package com.example.user.photoworld.model;
 
-import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.TreeMap;
@@ -12,7 +11,6 @@ public class Photo implements Comparable<Photo>, Serializable{
 	private final String photographer;
 	public final int photoId;
 	Date uploadDate;
-	// private final String name;
 	private final Category category;
 	private int rating;
 	int numberOfDownloads;
@@ -23,7 +21,6 @@ public class Photo implements Comparable<Photo>, Serializable{
 	public Photo(String photographer, int photoId, String name, Category category) {
 		this.photographer = photographer;
 		this.photoId = photoId;
-		//this.name = name;
 		this.category = category;
 		this.rating = 0;
 		this.comments = new TreeMap<>();

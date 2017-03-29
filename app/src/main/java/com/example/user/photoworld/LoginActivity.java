@@ -48,7 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isValidData(gallery)) {
                     gallery.login(username.getText().toString());
-                    Intent intent = new Intent(LoginActivity.this, GalleryActivity.class);
+                    Intent intent = new Intent(LoginActivity.this, MyGalleryActivity.class);
                     LoginActivity.this.startActivity(intent);
                     finish();
                 } else {
