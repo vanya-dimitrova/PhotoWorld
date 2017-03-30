@@ -1,4 +1,4 @@
-package com.example.user.photoworld;
+package com.example.user.photoworld.registration_login_profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.user.photoworld.R;
 import com.example.user.photoworld.model.PhotoWorld;
 import com.example.user.photoworld.model.User;
 

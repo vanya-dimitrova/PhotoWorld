@@ -1,6 +1,10 @@
 package com.example.user.photoworld.model;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import com.example.user.photoworld.model.Photo.Category;
+import com.example.user.photoworld.registration_login_profile.UploadDialogActivity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -16,7 +20,7 @@ public class PhotoWorld implements Serializable{
 	public static String currentUser;
 
 	public HashMap<Category, ArrayList<Photo>> photos;
-	private static HashMap<String, User> users;
+	public static HashMap<String, User> users;
 	
 	private PhotoWorld() {
 		this.setCategories();
@@ -109,13 +113,15 @@ public class PhotoWorld implements Serializable{
 		}
 	}
 
-	private void updatePhotos(Author author, String category) {
+	public boolean updatePhotos(String authorUsername, String category) {
+		boolean updateSuccessful = false;
+		Author author = (Author) users.get(authorUsername);
 			if (!this.photos.get(category).contains(author.offerPhoto())) {
-				this.photos.get(category).add(((Author)this.users.get(author)).uploadPhoto());
-				this.notifyUsers();		
-		    } else {
-		    	System.out.println("Photo already exists!");
+				this.photos.get(category).add(author.uploadPhoto());
+				this.notifyUsers();
+				updateSuccessful = true;
 		    }
+		    return updateSuccessful;
 	}		
 	
 	private void notifyUsers(){

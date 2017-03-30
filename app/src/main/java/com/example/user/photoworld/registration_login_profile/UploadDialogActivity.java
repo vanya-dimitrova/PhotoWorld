@@ -1,4 +1,4 @@
-package com.example.user.photoworld;
+package com.example.user.photoworld.registration_login_profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.example.user.photoworld.R;
+import com.example.user.photoworld.model.Author;
 
 public class UploadDialogActivity extends AppCompatActivity {
 
@@ -44,6 +48,11 @@ public class UploadDialogActivity extends AppCompatActivity {
         uploadButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+             Author author = (Author) MainActivity.currentUser;
+        String category = author.offerPhoto().getCategory();
+        if(! MainActivity.gallery.updatePhotos(author.getUserName(), category)){
+            Toast.makeText(this, "Picture already exists", Toast.LENGTH_SHORT).show();
+        }
 
             }
         });
@@ -55,5 +64,14 @@ public class UploadDialogActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    //TODO
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+
+
     }
 }

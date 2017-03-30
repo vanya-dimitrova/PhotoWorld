@@ -17,7 +17,6 @@ public class User implements Serializable, Cloneable{
 	private int age;
 	private boolean beNotified;
 	private File profilePicture;
-	private ArrayList<Comment> madeComments;
 	public Role role;
 
 	public User(String name, String username, String email, String password) {
@@ -27,7 +26,6 @@ public class User implements Serializable, Cloneable{
 		this.name = name;
 		beNotified = true;
 		this.role = Role.USER;
-		madeComments = new ArrayList<>();
 	}
 
 	public String getAddress() {

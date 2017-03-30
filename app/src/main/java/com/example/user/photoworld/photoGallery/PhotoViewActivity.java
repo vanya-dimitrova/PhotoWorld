@@ -1,4 +1,4 @@
-package com.example.user.photoworld;
+package com.example.user.photoworld.photoGallery;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,8 +10,13 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
+import com.example.user.photoworld.R;
 import com.example.user.photoworld.model.Photo;
+import com.example.user.photoworld.registration_login_profile.MainActivity;
+import com.example.user.photoworld.registration_login_profile.UploadDialogActivity;
 import com.example.user.photoworld.model.User;
+import com.example.user.photoworld.registration_login_profile.LogoutDialogActivity;
+import com.example.user.photoworld.registration_login_profile.ProfileActivity;
 
 public class PhotoViewActivity extends AppCompatActivity {
 
@@ -27,7 +32,7 @@ public class PhotoViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo);
+        setContentView(R.layout.activity_photo_view);
 
         image = (ImageView) findViewById(R.id.image_view);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -36,20 +41,17 @@ public class PhotoViewActivity extends AppCompatActivity {
         itemSetAs = (MenuItem) findViewById(R.id.item_set_as);
         itemUpload = (MenuItem) findViewById(R.id.item_upload);
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null && bundle.getSerializable("photo") != null && bundle.getSerializable("user") != null) {
-            Photo photoToGet = (Photo) bundle.getSerializable("photo");
-            MainActivity.currentUser = (User) bundle.getSerializable("user");
-            if (MainActivity.currentUser.getRole().equals(User.Role.USER)) {
-                itemUpload.setVisible(false);
-            }
-            image.setImageResource(photoToGet.photoId);
-        }
+        Photo photoToGet = (Photo) getIntent().getSerializableExtra("photo");
+        image.setImageResource(photoToGet.getPhotoId());
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        if (MainActivity.currentUser.getRole().equals(User.Role.USER)) {
+            itemUpload.setVisible(false);
+        }
     }
 
     @Override
@@ -65,7 +67,8 @@ public class PhotoViewActivity extends AppCompatActivity {
             case R.id.home:
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
-            case R.id.item_profile:startActivity(new Intent(PhotoViewActivity.this, ProfileActivity .class));
+            case R.id.item_profile:
+                startActivity(new Intent(PhotoViewActivity.this, ProfileActivity.class));
                 finish();
                 return true;
             case R.id.item_my_gallery:

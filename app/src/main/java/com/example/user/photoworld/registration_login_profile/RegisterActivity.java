@@ -1,4 +1,4 @@
-package com.example.user.photoworld;
+package com.example.user.photoworld.registration_login_profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 
+import com.example.user.photoworld.photoGallery.MyGalleryActivity;
+import com.example.user.photoworld.R;
 import com.example.user.photoworld.model.Author;
 import com.example.user.photoworld.model.User;
 
-import static com.example.user.photoworld.MainActivity.gallery;
+import static com.example.user.photoworld.registration_login_profile.MainActivity.gallery;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -52,9 +54,9 @@ public class RegisterActivity extends AppCompatActivity {
                     } else {
                         user = new User(name.getText().toString(), username.getText().toString(), email.getText().toString(), password.getText().toString());
                     }
-                    gallery.register(user);
+                    MainActivity.gallery.register(user);
+                    MainActivity.currentUser = user;
                     Intent intent = new Intent(RegisterActivity.this, MyGalleryActivity.class);
-                    intent.putExtra("user", user);
                     startActivity(intent);
                     finish();
                 }

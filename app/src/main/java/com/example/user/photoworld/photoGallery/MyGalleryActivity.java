@@ -1,4 +1,4 @@
-package com.example.user.photoworld;
+package com.example.user.photoworld.photoGallery;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,12 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import com.example.user.photoworld.model.User;
+import com.example.user.photoworld.R;
+import com.example.user.photoworld.registration_login_profile.MainActivity;
+import com.example.user.photoworld.registration_login_profile.UploadDialogActivity;
+import com.example.user.photoworld.adapters.MyRecyclerViewAdapter;
+import com.example.user.photoworld.registration_login_profile.LogoutDialogActivity;
+import com.example.user.photoworld.registration_login_profile.ProfileActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,11 +45,6 @@ public class MyGalleryActivity extends AppCompatActivity {
         setTitle(R.string.app_name);
 
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null && bundle.getSerializable("user") != null) {
-            MainActivity.currentUser = (User) bundle.getSerializable("user");
-        }
-
         List<MyRecyclerViewAdapter.CategoryHelp> categories = new ArrayList<>();
 
         categories.add(new MyRecyclerViewAdapter.CategoryHelp(R.drawable.abstraction, "Abstraction"));
@@ -65,6 +65,8 @@ public class MyGalleryActivity extends AppCompatActivity {
         rView.setLayoutManager(new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false));
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -77,12 +79,12 @@ public class MyGalleryActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.item_profile:
                 Intent intent = new Intent(MyGalleryActivity.this, ProfileActivity.class);
-                intent.putExtra("user", MainActivity.currentUser);
+                intent.putExtra("user", MainActivity.gallery.getCurrentUser());
                 startActivity(intent);
                 return true;
             case R.id.item_upload:
                 intent = new Intent(MyGalleryActivity.this, UploadDialogActivity.class);
-                intent.putExtra("user", MainActivity.currentUser);
+                intent.putExtra("user", MainActivity.gallery.getCurrentUser());
                 startActivity(intent);
                 return true;
             case R.id.item_log_out:

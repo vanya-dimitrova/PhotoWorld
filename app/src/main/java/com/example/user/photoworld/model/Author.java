@@ -16,25 +16,30 @@ public class Author extends User {
         this.uploads = 0;
     }
 
-    public int getUploads() {
-        return uploads;
+    public void addPhoto(Photo photo){
+        this.photographerPhotos.add(photo);
     }
 
-    public void setUploads(int uploads) {
-        this.uploads = uploads;
-    }
 
-    Photo uploadPhoto() {
+    public Photo uploadPhoto() {
         this.photographerPhotos.peek().uploadDate = Calendar.getInstance().getTime();
         return this.photographerPhotos.pop();
     }
 
-    Photo offerPhoto() {
+    public Photo offerPhoto() {
         return this.photographerPhotos.peek();
     }
 
     Photo removePhoto(Photo photo) {
         photos.remove(photo);
         return photo;
+    }
+
+    public int getUploads() {
+        return uploads;
+    }
+
+    public void setUploads(int uploads) {
+        this.uploads = uploads;
     }
 }

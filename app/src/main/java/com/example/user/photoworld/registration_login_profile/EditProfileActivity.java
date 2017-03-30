@@ -1,4 +1,4 @@
-package com.example.user.photoworld;
+package com.example.user.photoworld.registration_login_profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,11 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.user.photoworld.model.User;
+import com.example.user.photoworld.R;
 
-import static com.example.user.photoworld.MainActivity.currentUser;
+import static com.example.user.photoworld.registration_login_profile.MainActivity.currentUser;
 
 public class EditProfileActivity extends AppCompatActivity {
+
+    private static final int RESULT_OK = 1;
+    private static final int RESULT_CANCEL = 2;
 
     private EditText name;
     private EditText address;
@@ -36,17 +39,14 @@ public class EditProfileActivity extends AppCompatActivity {
         cancel = (Button) findViewById(R.id.cancel_btn);
         save = (Button) findViewById(R.id.save_btn);
 
-        Bundle bundle = getIntent().getExtras();
-        if(bundle != null && bundle.getSerializable("user") != null){
-            currentUser = (User) bundle.getSerializable("user");
-            this.name.setText(currentUser.getName());
-            if (address != null) {
-              this.address.setText(currentUser.getAddress());
+
+            this.name.setText(MainActivity.currentUser.getName());
+            if (MainActivity.currentUser.getAddress() != null) {
+              this.address.setText(MainActivity.currentUser.getAddress());
             }
-            if (age != null) {
-                this.age.setText(currentUser.getAge());
+            if (MainActivity.currentUser.getAge() != 0) {
+                this.age.setText(MainActivity.currentUser.getAge());
             }
-        }
 
         save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,13 +60,14 @@ public class EditProfileActivity extends AppCompatActivity {
 
             if(isValidData(nameStr, ageStr, addressStr, oldPassStr, newPassStr, newPass2Str)){
                 currentUser.setName(nameStr);
-                currentUser.setAge(Integer.parseInt(ageStr));
+                if(ageStr.length() > 0){
+                    currentUser.setAge(Integer.parseInt(ageStr.substring(ageStr.length() - 1)));
+                }
                 currentUser.setAddress(addressStr);
                 currentUser.setPassword(newPass2Str);
             }
-            Intent returnIntent = getIntent();
-            returnIntent.putExtra("user", currentUser);
-            setResult(ProfileActivity.RESULT_OK, returnIntent);
+            Intent returnIntent = new Intent();
+            setResult(RESULT_OK, returnIntent);
             finish();
             }
         });
@@ -74,7 +75,8 @@ public class EditProfileActivity extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
         public void onClick(View v) {
-            Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
+                Intent returnIntent = new Intent();
+                setResult(RESULT_CANCEL, returnIntent);
             finish();
             }
         });
@@ -82,13 +84,12 @@ public class EditProfileActivity extends AppCompatActivity {
 
     private boolean isValidData(String nameStr, String ageStr, String addressStr, String oldPassStr, String newPassStr, String newPass2Str) {
         boolean isValid = true;
-        int ageInt = Integer.parseInt(ageStr);
 
         if (nameStr.isEmpty() || nameStr.length() < 2) {
             name.setError(getString(R.string.empty_name));
             isValid = false;
         }
-        if (!ageStr.isEmpty() && (ageInt < 1 || ageInt > 120)) {
+        if (!ageStr.isEmpty() && (Integer.parseInt(ageStr) < 1 || Integer.parseInt(ageStr) > 120)) {
             age.setError(getString(R.string.invalid_age));
             isValid = false;
         }

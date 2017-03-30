@@ -1,4 +1,4 @@
-package com.example.user.photoworld;
+package com.example.user.photoworld.registration_login_profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.user.photoworld.R;
 
 public class LogoutDialogActivity extends AppCompatActivity {
 

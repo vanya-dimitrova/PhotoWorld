@@ -9,28 +9,31 @@ public class Photo implements Comparable<Photo>, Serializable{
 	public enum Category {ABSTRACT, ANIMAL, BLACK_AND_WHITE, FLOWER, FOOD, MACRO, NATURE, PATTERN, PEOPLE, PORTRAIT, SPORT, VINTAGE}
 
 	private final String photographer;
-	public final int photoId;
+	private final int photoId;
 	Date uploadDate;
 	private final Category category;
 	private int rating;
 	int numberOfDownloads;
 	int numberOfShares;
-	int numberOfSetAs;	
-	private TreeMap<Date, Comment> comments;
+	int numberOfSetAs;
 	
 	public Photo(String photographer, int photoId, String name, Category category) {
 		this.photographer = photographer;
 		this.photoId = photoId;
 		this.category = category;
 		this.rating = 0;
-		this.comments = new TreeMap<>();
 	}
-	
+
+	public int getPhotoId() {
+		return photoId;
+	}
+
+	public String getCategory(){
+		return this.category.toString();
+	}
+
 	private void showPhotoProperties() {
 		//TODO
-	}
-	private void showPhotoComments() {
-		System.out.println(comments);
 	}
 
 	public String getPhotographer() {

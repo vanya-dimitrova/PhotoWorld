@@ -1,43 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linear_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.user.photoworld.GalleryActivity"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
-    android:background="@drawable/background_img2">
+    android:background="@drawable/background_img2"
+    tools:context="com.example.user.photoworld.photoGallery.MyGalleryActivity">
 
-    <include
-        layout="@layout/app_bar"
-        android:id="@+id/toolbar" />
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="@color/colorTransparent">
 
-        <TextView
-            android:id="@+id/text_emptyCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:enabled="false"/>
+        <include
+            layout="@layout/app_bar"
+            android:id="@+id/toolbar" />
 
-        <ScrollView
-            android:id="@+id/scroll_category"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:layout_below="@+id/toolbar"
+            android:id="@+id/my_recycler_view2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:id="@+id/linear_scrollviewChild"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-            </LinearLayout>
-        </ScrollView>
-        </LinearLayout>
-</LinearLayout>
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+</RelativeLayout>

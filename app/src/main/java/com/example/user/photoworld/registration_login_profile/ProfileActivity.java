@@ -1,4 +1,4 @@
-package com.example.user.photoworld;
+package com.example.user.photoworld.registration_login_profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,11 +9,13 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.example.user.photoworld.model.Author;
+import com.example.user.photoworld.photoGallery.MyGalleryActivity;
+import com.example.user.photoworld.R;
 import com.example.user.photoworld.model.User;
 
-public class ProfileActivity extends AppCompatActivity{
+public class ProfileActivity extends AppCompatActivity {
 
     private static final int SUCCESSFUL_EDIT = 4;
 
@@ -28,7 +30,6 @@ public class ProfileActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
         name = (TextView) findViewById(R.id.profile_name);
         username = (TextView) findViewById(R.id.profile_username);
         address = (TextView) findViewById(R.id.profile_address);
@@ -36,27 +37,26 @@ public class ProfileActivity extends AppCompatActivity{
         email = (TextView) findViewById(R.id.profile_email);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        Bundle bundle = getIntent().getExtras();
-        if (bundle != null && bundle.getSerializable("user") != null) {
-            MainActivity.currentUser = (User) getIntent().getExtras().getSerializable("user");
-            name.setText(MainActivity.currentUser.getName());
-            username.setText(MainActivity.currentUser.getUserName());
-            email.setText(((Author)MainActivity.currentUser).getEmail());
-            if (MainActivity.currentUser.getAddress() != null) {
-                address.setText(MainActivity.currentUser.getAddress());
-            } else {
-                address.setText("-");
-            }
-            if (MainActivity.currentUser.getAge() != 0) {
-                age.setText(MainActivity.currentUser.getAge());
-            } else {
-                age.setText("-");
-            }
+
+        name.setText(MainActivity.currentUser.getName());
+        username.setText(MainActivity.currentUser.getUserName());
+        email.setText(MainActivity.currentUser.getEmail());
+        if (MainActivity.currentUser.getAddress() != null) {
+            address.setText(MainActivity.currentUser.getAddress());
+        } else {
+            address.setText("------");
         }
+        if (MainActivity.currentUser.getAge() != 0) {
+            age.setText(MainActivity.currentUser.getAge());
+        } else {
+            age.setText("------");
+        }
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -87,4 +87,20 @@ public class ProfileActivity extends AppCompatActivity{
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Toast.makeText(this, "onactivityresult", Toast.LENGTH_SHORT).show();
+        if(resultCode == 1){
+            Toast.makeText(this, "v ifaaaaaaaaaaaa", Toast.LENGTH_SHORT).show();
+
+            name.setText(MainActivity.currentUser.getName());
+            username.setText(MainActivity.currentUser.getUserName());
+            address.setText(MainActivity.currentUser.getAddress());
+            age.setText(MainActivity.currentUser.getAge() + " ");
+            email.setText(MainActivity.currentUser.getEmail());
+        }
+    }
 }
+

@@ -13,42 +13,39 @@
         android:roundIcon="@mipmap/photo_world"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".registration_login_profile.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MyGalleryActivity" />
-        <activity android:name=".CategoryActivity">
+        <activity android:name=".registration_login_profile.LoginActivity" />
+        <activity android:name=".registration_login_profile.RegisterActivity" />
+        <activity android:name=".photoGallery.MyGalleryActivity" />
+        <activity android:name=".registration_login_profile.ProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MyGalleryActivity" />
+                android:value=".photoGallery.MyGalleryActivity" />
         </activity>
-        <activity android:name=".ProfileActivity">
+        <activity android:name=".photoGallery.PhotoViewActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MyGalleryActivity" />
+                android:value=".photoGallery.ToDelete" />
         </activity>
-        <activity android:name=".PhotoViewActivity">
+        <activity android:name=".registration_login_profile.EditProfileActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CategoryActivity" />
-        </activity>
-
-        <activity android:name=".EditProfileActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ProfileActivity" />
+                android:value=".registration_login_profile.ProfileActivity" />
         </activity>
         <activity
-            android:name=".LogoutDialogActivity"
+            android:name=".registration_login_profile.LogoutDialogActivity"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity
-            android:name=".UploadDialogActivity"
-            android:theme="@style/Theme.AppCompat.Dialog" />/>
+            android:name=".registration_login_profile.UploadDialogActivity"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        />
+        <activity android:name=".photoGallery.CategoryActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.user.photoworld;
+package com.example.user.photoworld.registration_login_profile;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +9,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.photoworld.photoGallery.MyGalleryActivity;
+import com.example.user.photoworld.R;
 import com.example.user.photoworld.model.PhotoWorld;
 import com.example.user.photoworld.model.User;
 
 import java.util.HashSet;
 
-import static com.example.user.photoworld.MainActivity.gallery;
+import static com.example.user.photoworld.registration_login_profile.MainActivity.gallery;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -50,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                     gallery.login(username.getText().toString());
                     Intent intent = new Intent(LoginActivity.this, MyGalleryActivity.class);
                     LoginActivity.this.startActivity(intent);
+                    MainActivity.currentUser = MainActivity.gallery.users.get(username.getText().toString());
                     finish();
                 } else {
                     Toast.makeText(LoginActivity.this, "Wrong username or password!", Toast.LENGTH_SHORT).show();

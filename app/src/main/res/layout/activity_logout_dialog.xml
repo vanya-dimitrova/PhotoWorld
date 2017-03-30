@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/colorImageBackground"
-    tools:context="com.example.user.photoworld.LogoutDialogActivity">
+    tools:context="com.example.user.photoworld.registration_login_profile.LogoutDialogActivity">
 
     <TextView
         android:id="@+id/logout_message"
