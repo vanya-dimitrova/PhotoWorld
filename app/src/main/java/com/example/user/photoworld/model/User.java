@@ -17,15 +17,15 @@ public class User implements Serializable, Cloneable{
 	private int age;
 	private boolean beNotified;
 	private File profilePicture;
-	public Role role;
+	protected Role role;
 
-	public User(String name, String username, String email, String password) {
+	public User(String name, String username, String email, String password, Role role) {
 		this.username = username;
 		this.password = password;
-		this.email = email; // TODO validation
+		this.email = email;
 		this.name = name;
 		beNotified = true;
-		this.role = Role.USER;
+		this.role = role;
 	}
 
 	public String getAddress() {
@@ -71,7 +71,7 @@ public class User implements Serializable, Cloneable{
 	public void setAge(int age) {
 		this.age = age;
 	}
-	
+
 	boolean confirmPassword(String pass1, String pass2) {
 		if (!pass1.equals(pass2)) {
 			return false;

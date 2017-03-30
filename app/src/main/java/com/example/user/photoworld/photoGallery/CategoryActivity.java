@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -49,13 +50,13 @@ public class CategoryActivity extends AppCompatActivity {
         Photo.Category category = (Photo.Category) getIntent().getSerializableExtra("category");
         getSupportActionBar().setTitle(getString(R.string.app_name) + " " + category.name());
 
-        gallery.addPhoto(category, new Photo("Pencho", R.drawable.abstraction_1, "ooo", category));
-        gallery.addPhoto(category, new Photo("Vancho", R.drawable.abstraction_2, "ooo", category));
-        gallery.addPhoto(category, new Photo("Gencho", R.drawable.abstraction_3, "ooo", category));
-        gallery.addPhoto(category, new Photo("Gencho", R.drawable.animal, "ooo", category));
-        gallery.addPhoto(category, new Photo("Gencho", R.drawable.b_white, "ooo", category));
-        gallery.addPhoto(category, new Photo("Gencho", R.drawable.flower, "ooo", category));
-        gallery.addPhoto(category, new Photo("Gencho", R.drawable.macro, "ooo", category));
+        gallery.addPhoto(category, new Photo("Pencho", R.drawable.abstraction_1, category));
+        gallery.addPhoto(category, new Photo("Vancho", R.drawable.abstraction_2, category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.abstraction_3, category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.animal, category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.b_white, category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.flower, category));
+        gallery.addPhoto(category, new Photo("Gencho", R.drawable.macro, category));
 
         categoryPhotos = MainActivity.gallery.photos.get(category);
 
@@ -76,12 +77,12 @@ public class CategoryActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.item_profile:
                 Intent intent = new Intent(CategoryActivity.this, ProfileActivity.class);
-                intent.putExtra("user", MainActivity.gallery.getCurrentUser());
+                intent.putExtra("user", MainActivity.gallery.currentUser);
                 startActivity(intent);
                 return true;
             case R.id.item_upload:
                 intent = new Intent(CategoryActivity.this, UploadDialogActivity.class);
-                intent.putExtra("user", MainActivity.gallery.getCurrentUser());
+                intent.putExtra("user", MainActivity.gallery.currentUser);
                 startActivity(intent);
                 return true;
             case R.id.item_log_out:
@@ -91,4 +92,5 @@ public class CategoryActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 }
+
 

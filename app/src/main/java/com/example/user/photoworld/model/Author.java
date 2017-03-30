@@ -6,14 +6,14 @@ import java.util.Stack;
 
 public class Author extends User {
 
-    private HashSet<Photo> photos;
+    private HashSet<Photo> uploadedPhotos;
     private Stack<Photo> photographerPhotos;
     private int uploads;
 
-    public Author(String name, String username, String email, String password) {
-        super(name, username, email, password);
-        this.role = Role.AUTHOR;
-        this.uploads = 0;
+    public Author(String name, String username, String email, String password, Role role) {
+        super(name, username, email, password, role);
+        this.uploadedPhotos = new HashSet<>();
+        this.photographerPhotos = new Stack<>();
     }
 
     public void addPhoto(Photo photo){
@@ -22,7 +22,7 @@ public class Author extends User {
 
 
     public Photo uploadPhoto() {
-        this.photographerPhotos.peek().uploadDate = Calendar.getInstance().getTime();
+        this.photographerPhotos.peek().setUploadDate();
         return this.photographerPhotos.pop();
     }
 
@@ -31,7 +31,7 @@ public class Author extends User {
     }
 
     Photo removePhoto(Photo photo) {
-        photos.remove(photo);
+        uploadedPhotos.remove(photo);
         return photo;
     }
 

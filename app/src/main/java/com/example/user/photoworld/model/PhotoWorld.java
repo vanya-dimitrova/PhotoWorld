@@ -17,14 +17,14 @@ import java.util.TreeSet;
 public class PhotoWorld implements Serializable{
 	
 	private static PhotoWorld photoWorld;
-	public static String currentUser;
+	public User currentUser;
 
 	public HashMap<Category, ArrayList<Photo>> photos;
 	public static HashMap<String, User> users;
 	
 	private PhotoWorld() {
 		this.setCategories();
-		this.users = new HashMap<String, User>();
+		this.users = new HashMap<>();
 	}
 	
 	public static PhotoWorld getPhotoWorld() {
@@ -32,10 +32,6 @@ public class PhotoWorld implements Serializable{
 			return photoWorld = new PhotoWorld();
 		}
 		return photoWorld;
-	}
-
-	public String getCurrentUser() {
-		return currentUser;
 	}
 
 
@@ -63,8 +59,14 @@ public class PhotoWorld implements Serializable{
 	//done
 	public void register(User user) {
 		users.put(user.getUserName(), user);
-		currentUser = user.getUserName();
+		currentUser = user;
 	}
+
+	//done
+	public void login(String username) {
+		currentUser = users.get(username);
+	}
+
 	//done
 	public boolean checkUser(String userName) {
 		if (!this.users.isEmpty() && this.users.containsKey(userName)) {
@@ -91,10 +93,6 @@ public class PhotoWorld implements Serializable{
 			}
 		}
 		return false;
-	}
-
-	public void login(String username) {
-		currentUser = username;
 	}
 	
 	private void logOut() {

@@ -16,7 +16,6 @@ public class MainActivity extends AppCompatActivity {
     private Button login;
 
     public static PhotoWorld gallery;
-    public static User currentUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -49,7 +49,7 @@ public class PhotoViewActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
-        if (MainActivity.currentUser.getRole().equals(User.Role.USER)) {
+        if (MainActivity.gallery.currentUser.getRole().equals(User.Role.USER)) {
             itemUpload.setVisible(false);
         }
     }
@@ -118,6 +118,7 @@ public class PhotoViewActivity extends AppCompatActivity {
             myWallpaperManager.setResource(R.id.image_view);
         } catch (IOException e) {
             e.printStackTrace();
+
         }
         */
     }

@@ -20,7 +20,6 @@ import static com.example.user.photoworld.registration_login_profile.MainActivit
 
 public class LoginActivity extends AppCompatActivity {
 
-    private HashSet<User> users;
     private EditText username;
     private EditText password;
     private Button loginButton;
@@ -52,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
                     gallery.login(username.getText().toString());
                     Intent intent = new Intent(LoginActivity.this, MyGalleryActivity.class);
                     LoginActivity.this.startActivity(intent);
-                    MainActivity.currentUser = MainActivity.gallery.users.get(username.getText().toString());
                     finish();
                 } else {
                     Toast.makeText(LoginActivity.this, "Wrong username or password!", Toast.LENGTH_SHORT).show();

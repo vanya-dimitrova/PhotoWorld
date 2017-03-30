@@ -56,7 +56,6 @@ public class MyRecyclerViewAdapter2 extends RecyclerView.Adapter<MyRecyclerViewA
         holder.image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.e("gr", "vliza v metoda");
                 Intent i = new Intent(context, PhotoViewActivity.class);
                 i.putExtra("photo", photo);
                 context.startActivity(i);

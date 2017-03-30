@@ -1,6 +1,7 @@
 package com.example.user.photoworld.model;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.TreeMap;
 
@@ -10,18 +11,17 @@ public class Photo implements Comparable<Photo>, Serializable{
 
 	private final String photographer;
 	private final int photoId;
-	Date uploadDate;
+	private Date uploadDate;
 	private final Category category;
 	private int rating;
-	int numberOfDownloads;
-	int numberOfShares;
-	int numberOfSetAs;
+	private int numberOfDownloads;
+	private int numberOfShares;
+	private int numberOfSetAs;
 	
-	public Photo(String photographer, int photoId, String name, Category category) {
+	public Photo(String photographer, int photoId, Category category) {
 		this.photographer = photographer;
 		this.photoId = photoId;
 		this.category = category;
-		this.rating = 0;
 	}
 
 	public int getPhotoId() {
@@ -30,10 +30,6 @@ public class Photo implements Comparable<Photo>, Serializable{
 
 	public String getCategory(){
 		return this.category.toString();
-	}
-
-	private void showPhotoProperties() {
-		//TODO
 	}
 
 	public String getPhotographer() {
@@ -46,6 +42,16 @@ public class Photo implements Comparable<Photo>, Serializable{
 
 	public int getPopularity() {
 		return this.numberOfDownloads + this.numberOfSetAs + this.numberOfShares;
+	}
+
+	public void setUploadDate(){
+		if(this.uploadDate == null){
+			this.uploadDate = Calendar.getInstance().getTime();
+		}
+	}
+
+	private void showPhotoProperties() {
+		//TODO
 	}
 
 	@Override

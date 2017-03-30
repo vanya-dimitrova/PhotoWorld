@@ -28,15 +28,13 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        View row;
         ImageView image;
         TextView text;
 
         MyViewHolder(View row) {
             super(row);
-            this.row = row;
-            image = (ImageView) this.row.findViewById(R.id.category_image_item);
-            text = (TextView) this.row.findViewById(R.id.category_title_item);
+            image = (ImageView) row.findViewById(R.id.category_image_item);
+            text = (TextView) row.findViewById(R.id.category_title_item);
         }
     }
 

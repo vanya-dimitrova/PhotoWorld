@@ -8,8 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.user.photoworld.R;
+import com.example.user.photoworld.model.User;
 
-import static com.example.user.photoworld.registration_login_profile.MainActivity.currentUser;
 
 public class EditProfileActivity extends AppCompatActivity {
 
@@ -40,12 +40,13 @@ public class EditProfileActivity extends AppCompatActivity {
         save = (Button) findViewById(R.id.save_btn);
 
 
-            this.name.setText(MainActivity.currentUser.getName());
-            if (MainActivity.currentUser.getAddress() != null) {
-              this.address.setText(MainActivity.currentUser.getAddress());
+           final User user = MainActivity.gallery.currentUser;
+            this.name.setText(user.getName());
+            if (user.getAddress() != null) {
+              this.address.setText(user.getAddress());
             }
-            if (MainActivity.currentUser.getAge() != 0) {
-                this.age.setText(MainActivity.currentUser.getAge());
+            if (user.getAge() != 0) {
+                this.age.setText(user.getAge());
             }
 
         save.setOnClickListener(new View.OnClickListener() {
@@ -59,12 +60,12 @@ public class EditProfileActivity extends AppCompatActivity {
             String newPass2Str = confirmPass.getText().toString();
 
             if(isValidData(nameStr, ageStr, addressStr, oldPassStr, newPassStr, newPass2Str)){
-                currentUser.setName(nameStr);
+                user.setName(nameStr);
                 if(ageStr.length() > 0){
-                    currentUser.setAge(Integer.parseInt(ageStr.substring(ageStr.length() - 1)));
+                    user.setAge(Integer.parseInt(ageStr.substring(ageStr.length() - 1)));
                 }
-                currentUser.setAddress(addressStr);
-                currentUser.setPassword(newPass2Str);
+                user.setAddress(addressStr);
+                user.setPassword(newPass2Str);
             }
             Intent returnIntent = new Intent();
             setResult(RESULT_OK, returnIntent);
@@ -100,7 +101,7 @@ public class EditProfileActivity extends AppCompatActivity {
         }
 
         if (!oldPassStr.isEmpty() && !newPassStr.isEmpty() && !newPass2Str.isEmpty()) {
-            if (!currentUser.getPassword().equals(oldPassStr)) {
+            if (!MainActivity.gallery.currentUser.getPassword().equals(oldPassStr)) {
                 oldPass.setError(getString(R.string.password_mismatch));
                 isValid = false;
             }

@@ -11,9 +11,9 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.user.photoworld.model.User;
 import com.example.user.photoworld.photoGallery.MyGalleryActivity;
 import com.example.user.photoworld.R;
-import com.example.user.photoworld.model.User;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -37,17 +37,18 @@ public class ProfileActivity extends AppCompatActivity {
         email = (TextView) findViewById(R.id.profile_email);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        User user = MainActivity.gallery.currentUser;
 
-        name.setText(MainActivity.currentUser.getName());
-        username.setText(MainActivity.currentUser.getUserName());
-        email.setText(MainActivity.currentUser.getEmail());
-        if (MainActivity.currentUser.getAddress() != null) {
-            address.setText(MainActivity.currentUser.getAddress());
+        name.setText(user.getName());
+        username.setText(user.getUserName());
+        email.setText(user.getEmail());
+        if (user.getAddress() != null) {
+            address.setText(user.getAddress());
         } else {
             address.setText("------");
         }
-        if (MainActivity.currentUser.getAge() != 0) {
-            age.setText(MainActivity.currentUser.getAge());
+        if (user.getAge() != 0) {
+            age.setText(user.getAge());
         } else {
             age.setText("------");
         }
@@ -91,15 +92,13 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Toast.makeText(this, "onactivityresult", Toast.LENGTH_SHORT).show();
         if(resultCode == 1){
-            Toast.makeText(this, "v ifaaaaaaaaaaaa", Toast.LENGTH_SHORT).show();
-
-            name.setText(MainActivity.currentUser.getName());
-            username.setText(MainActivity.currentUser.getUserName());
-            address.setText(MainActivity.currentUser.getAddress());
-            age.setText(MainActivity.currentUser.getAge() + " ");
-            email.setText(MainActivity.currentUser.getEmail());
+            User user = MainActivity.gallery.currentUser;
+            name.setText(user.getName());
+            username.setText(user.getUserName());
+            address.setText(user.getAddress());
+            age.setText(user.getAge() + " ");
+            email.setText(user.getEmail());
         }
     }
 }

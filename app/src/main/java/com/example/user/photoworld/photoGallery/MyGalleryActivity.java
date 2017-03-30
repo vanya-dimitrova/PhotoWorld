@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -79,12 +80,12 @@ public class MyGalleryActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.item_profile:
                 Intent intent = new Intent(MyGalleryActivity.this, ProfileActivity.class);
-                intent.putExtra("user", MainActivity.gallery.getCurrentUser());
+                intent.putExtra("user", MainActivity.gallery.currentUser);
                 startActivity(intent);
                 return true;
             case R.id.item_upload:
                 intent = new Intent(MyGalleryActivity.this, UploadDialogActivity.class);
-                intent.putExtra("user", MainActivity.gallery.getCurrentUser());
+                intent.putExtra("user", MainActivity.gallery.currentUser);
                 startActivity(intent);
                 return true;
             case R.id.item_log_out:
